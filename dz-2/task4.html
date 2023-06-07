@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 4</title>
+</head>
+
+<body>
+	<h1><a href="index.html">Home</a></h1>
+
+	<script>
+		//Задача 4. Дано довжину у сантиметрах. Визначати скільки це метрів і кілометрів.
+
+		const centimeter = parseInt(prompt("Введіть довжину у сантиметрах", "1"))
+		const CENTIMETER_IN_METER = 100;
+		const CENTIMETER_IN_KILOMETER = 100000;
+
+		const resultMeter = centimeter / CENTIMETER_IN_METER;
+		const resultKilometer = centimeter / CENTIMETER_IN_KILOMETER;
+		// console.log(`${centimeter} сантиметрів в ${resultMeter} метрах`);
+		// console.log(`${centimeter} сантиметрів в ${resultKilometer} кілометрах`);
+
+		document.write(`<table>
+				<tr>
+					<td>Задача 4. Дано довжину у сантиметрах. Визначати скільки це метрів і кілометрів.</td>
+				</tr>
+				<tr>
+					<td>Початкові значення:</td>
+					<td> Змінна centimeter: ${centimeter} </td>
+				</tr>
+				<tr>
+					<td>Кількість метрів</td>
+					<td>${resultMeter} метрів</td>
+				</tr>
+				<tr>
+					<td>Кількість кілометрів</td>
+					<td>${resultKilometer} кілометрів</td>
+				</tr>
+				
+			</table>`)
+	</script>
+</body>
+
+</html>

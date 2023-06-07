@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 0</title>
+</head>
+
+<body>
+	<h1><a href="index.html">Home</a></h1>
+
+	<script>
+		// 		Задача 0. Обчислити значення виразів
+		// S1=a+12+b
+		// S2=a+b2a 
+		// S3=3(a+b)c 
+		// S4=sin⁡(a-b) 
+		let numA = parseFloat(prompt("Введіть значення - a ", "0"));
+		let numB = parseFloat(prompt("Введіть значення - b ", "0"));
+		let numC = parseFloat(prompt("Введіть значення - c ", "0"))
+
+		let s1 = numA + 12 + numB;
+		let s2 = Math.sqrt((numA + numB) / 2 * numA);
+		let s3 = Math.cbrt((numA + numB) / numC);
+		let s4 = Math.sin(numA / (-numB));
+		document.write(`<table>
+				<tr>
+					<td>Задача 0. Обчислити значення виразів</td>
+				</tr>
+				<tr>
+					<td>Початкові значення:</td>
+					<td> Змінна a: ${numA} <br> Змінна b: ${numB} <br>  Змінна c: ${numC}</td>
+				</tr>
+				<tr>
+					<td>S1</td>
+					<td>${s1}</td>
+				</tr>
+				<tr>
+					<td>S2</td>
+					<td>${s2.toFixed(2)}</td>
+				</tr>
+				<tr>
+					<td>S3</td>
+					<td>${s3.toFixed(2)}</td>
+				</tr>
+				<tr>
+					<td>S4</td>
+					<td>${s4.toFixed(2)}</td>
+				</tr>
+			</table>`)
+
+	</script>
+</body>
+
+</html>

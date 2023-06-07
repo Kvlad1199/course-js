@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 5</title>
+</head>
+
+<body>
+	<h1><a href="index.html">Home</a></h1>
+
+	<script>
+		//Задача 5. Дано кількість секунд, що пройшла від початку доби. Визначити скільки це годин і хвилин.
+
+		const seconds = parseInt(prompt("Введіть кількість секунд ", "1"))
+		const SECONDS_IN_MINUTE = 60;
+		const SECONDS_IN_HOUR = 3600;
+
+		const resultMinute = seconds / SECONDS_IN_MINUTE;
+		const resultHour = seconds / SECONDS_IN_HOUR;
+		console.log(`${seconds} це ${resultMinute.toFixed(3)} хвилин`);
+		console.log(`${seconds} це ${resultHour.toFixed(3)} годин`);
+
+		document.write(`<table>
+				<tr>
+					<td>Задача 5. Дано кількість секунд, що пройшла від початку доби. Визначити скільки це годин і хвилин.</td>
+				</tr>
+				<tr>
+					<td>Початкові значення:</td>
+					<td> Змінна seconds: ${seconds}  </td>
+				</tr>
+				<tr>
+					<td>Кількість хвилин</td>
+					<td>${resultMinute.toFixed(2)} хвилин</td>
+				</tr>
+				<tr>
+					<td>Кількість годин</td>
+					<td>${resultHour.toFixed(2)} годин</td>
+				</tr>
+				
+			</table>`)
+	</script>
+</body>
+
+</html>

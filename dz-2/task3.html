@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 3</title>
+</head>
+
+<body>
+
+	<h1><a href="index.html">Home</a></h1>
+	<script>
+		//Задача 3. Дано вартість одиниці товару і кількість. Знайти загальну вартість та ПДВ (5% від загальної вартості).
+		const productPrice = parseFloat(prompt("Введіть вартість товару", "1"));
+		const productQuantity = parseInt(prompt("Введіть кількість товару", "1"));
+		const TAX = 5;
+
+		let cost = productPrice * productQuantity;
+		let costWithTax = cost * TAX / 100
+
+		document.write(`<table>
+				<tr>
+					<td>Задача 3. Дано вартість одиниці товару і кількість. Знайти загальну вартість та ПДВ (5% від загальної вартості).</td>
+				</tr>
+				<tr>
+					<td>Початкові значення:</td>
+					<td> Змінна productPrice: ${productPrice} <br>  Змінна productQuantity: ${productQuantity} </td>
+				</tr>
+				<tr>
+					<td>Загальна вартість</td>
+					<td>${cost}</td>
+				</tr>
+				<tr>
+					<td>ПДВ</td>
+					<td>${costWithTax.toFixed(2)}</td>
+				</tr>
+				
+			</table>`)
+	</script>
+</body>
+
+</html>

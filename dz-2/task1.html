@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 1</title>
+</head>
+
+<body>
+	<h1><a href="index.html">Home</a></h1>
+	<script>
+
+		//Задача 1. Знайти суму, добуток та частку двох дійсних чисел. Результат вивести у формі таблиці
+
+		let num1 = parseFloat(prompt("Введіть перше число", 0));
+		let num2 = parseFloat(prompt("Введіть друге число", 0));
+
+		const SUM = num1 + num2;
+		const MULTIPLY = num1 * num2;
+		const DIVIDE = num1 / num2;
+		// console.log(`${num1} + ${num2} = ${SUM}`);
+		// console.log(`${num1} * ${num2} = ${MULTIPLY}`);
+		// console.log(`${num1} / ${num2} = ${DIVIDE}`);
+		document.write(`
+		<table>
+				<tr>
+					<td>Задача 1. Знайти суму, добуток та частку двох дійсних чисел. Результат вивести у формі таблиці</td>
+				</tr>
+				<tr>
+					<td>Початкові значення:</td>
+					<td> Змінна 1: ${num1} <br> Змінна 2: ${num2}  </td>
+				</tr>
+				<tr>
+					<td>Сумма</td>
+					<td>${SUM}</td>
+				</tr>
+				<tr>
+					<td>Добуток</td>
+					<td>${MULTIPLY}</td>
+				</tr>
+				<tr>
+					<td>Частка</td>
+					<td>${DIVIDE}</td>
+				</tr>
+				
+			</table>`)
+	</script>
+</body>
+
+</html>

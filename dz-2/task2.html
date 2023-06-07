@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 2</title>
+</head>
+
+<body>
+	<h1><a href="index.html">Home</a></h1>
+
+	<script>
+		//Задача 2. Дано рік народження (дата: 1 січня) та поточний рік. Знайти кількість років.
+
+		const yearOfBirth = parseInt(prompt("Введіть рік народження", "2000"));
+		let year2023 = 2023;
+
+		const result = year2023 - yearOfBirth;
+		//console.log(`Вам ${result} років`);
+		document.write(`<table>
+				<tr>
+					<td>Задача 2. Дано рік народження (дата: 1 січня) та поточний рік. Знайти кількість років.
+</td>
+				</tr>
+				<tr>
+					<td>Початкові значення:</td>
+					<td> Змінна yearOfBirth: ${yearOfBirth} </td>
+				</tr>
+				<tr>
+					<td>Результат</td>
+					<td>Вам ${result} роки</td>
+				</tr>
+				
+			</table>`)
+
+	</script>
+</body>
+
+</html>
