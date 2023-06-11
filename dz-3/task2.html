@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="css/style.css" />
+	<title>Task 2</title>
+</head>
+
+<body>
+	<h1><a href="index.html">Home</a></h1>
+
+	<script>
+		//Задача 2. З клавіатури вводиться ціна товару і кількість грошей.
+		// Якщо грошей не вистачає то відмовляємо у покупці, інакше, якщо ще залишаються гроші, то пропонуємо купити лотерею за 4 грн.
+
+		const priceOfProduct = parseFloat(prompt("Введіть ціну товару"));
+		let userMoney = parseFloat(prompt("Введіть кількість грошей"));
+		const PRICE_OF_LOTTERY = 4;
+		let result;
+		if (userMoney >= priceOfProduct) {
+			let rest = userMoney - priceOfProduct;
+			if (rest >= PRICE_OF_LOTTERY) {
+				result = "Чи бажаєте ви придбати лотарею?"
+			}
+			else {
+				result = "Дякуємо за покупку, гарного вам дня!"
+			}
+		} else if (userMoney < priceOfProduct) {
+			result = "В покупці відмовлено.";
+		} else {
+			result = "Введено некоректні данні";
+		}
+		alert(result)
+		document.write(`<table>
+      		<tr>
+      			<td>Задача 2.З клавіатури вводиться ціна товару і кількість грошей. Якщо грошей не вистачає то відмовляємо у покупці, інакше, якщо ще залишаються гроші, то пропонуємо купити лотерею за 4 грн.</td>
+      		</tr>
+      		<tr>
+      			<td>Початкові значення:</td>
+      			<td> Ціна товару: ${priceOfProduct} <br> Гроші: ${userMoney} </td>
+      		</tr>
+      		<tr>
+      			<td>Результат</td>
+      			<td>${result}</td>
+      		</tr>
+      	</table>`)
+	</script>
+</body>
+
+</html>

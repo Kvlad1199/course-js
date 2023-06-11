@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 6(додатковий)</title>
+</head>
+<br>
+
+<body>
+	<h1><a href="index.html">Home</a></h1>
+
+	<script>
+		//Задача 6. Полювання. Заєць знаходиться у верхньому лівому кутку поля. Поле складається з двох рядків і двох стовпців.
+		//За один крок заєць може стрибнути у будь-яку із вільних клітинок. 
+		// Користувач ставить пастку вказуючи номер рядка і стовпця клітинки. 
+		// Якщо заєць потрапляє у пастку, то користувач виграв і отримав 100 балів. 
+		// Якщо користувач зловить зайця за другою спробою, то одержує 50 балів. 
+
+		let result;
+
+		let min = 1
+		let max = 2
+
+		let userX = parseInt(prompt("Введіть номер рядка щоб поставити пастку від 1 до 2", "1"))
+		let userY = parseInt(prompt("Введіть номер стовпця щоб поставити пастку від 1 до 2", "1"))
+		console.log(`Координати які ввів користувач рядок ${userX} стовпець ${userY}`);
+
+		let rabitX = min + Math.floor(Math.random() * (max - min + 1))
+		let rabitY = min + Math.floor(Math.random() * (max - min + 1))
+		let rabitX2;
+		let rabitY2;
+		console.log(`Координати в яких знаходиться заєць рядок ${rabitX} стовпець ${rabitY}`);
+		if (userX === rabitX && userY === rabitY) {
+			result = "Ви спіймали зайця - ви виграли 100 балів"
+		} else {
+			rabitX2 = min + Math.floor(Math.random() * (max - min + 1))
+			rabitY2 = min + Math.floor(Math.random() * (max - min + 1))
+			console.log(`Координати в яких знаходиться заєць 2 раз  рядок ${rabitX2} стовпець ${rabitY2}`);
+			if (userX === rabitX2 && userY === rabitY2) {
+				result = "Ви спіймали зайця - ви виграли 50 балів"
+			}
+			else {
+				result = "Ви програли"
+			}
+		}
+		alert(result)
+
+		document.write(`
+		<table>
+				<tr>
+					<td> Задача 6	Полювання. Заєць знаходиться у верхньому лівому кутку поля. Поле складається з двох рядків і двох стовпців.
+
+За один крок заєць може стрибнути у будь-яку із вільних клітинок. Користувач ставить пастку вказуючи номер рядка і стовпця клітинки. Якщо заєць потрапляє у пастку, то користувач виграв і отримав 100 балів. Якщо користувач зловить зайця за другою спробою, то одержує 50 балів. 
+
+					</td>
+				</tr>
+				<tr>
+					<td>Початкові значення: </td>
+					<td> Координати пастки (${userX};${userY}) <br> Координати куди заєць стрибає перший раз (${rabitX};${rabitY}) <br> Координати куди заєць стрибає другий раз (${rabitX2};${rabitY2})</td>
+				</tr>
+				<tr>
+					<td>Результат</td>
+					<td>${result}</td>
+				</tr>
+			
+			</table>`)
+
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 1</title>
+</head>
+
+<body>
+	<h1><a href="index.html">Home</a></h1>
+	<script>
+
+		//Задача 1.
+		//З клавіатури вводяться імена двох дітей та кількість у них цукерок.
+		// Вивести не екран ім’я тієї дитини, у якої кількість цукерок є більшою, або вивести, що кількість однакова.
+
+		let firstChildName = prompt("Введіть ім'я першої дитини")
+		let firstChildSweets = parseInt(prompt(`Введіть кількість цукерок у ${firstChildName} `))
+		let secondChildName = prompt("Введіть ім'я другої дитини")
+		let secondChildSweets = parseInt(prompt(`Введіть кількість цукерок у ${secondChildName} `))
+		let result;
+		if (firstChildSweets === secondChildSweets) {
+			result = "Кількість цукерок однакова"
+		} else if (firstChildSweets > secondChildSweets) {
+			result = firstChildName
+		} else if (firstChildSweets < secondChildSweets) {
+			result = secondChildName
+		} else {
+			result = "Введено некоректні данні"
+		}
+		alert(result)
+		document.write(`
+		<table>
+				<tr>
+					<td>Задача 1. З клавіатури вводяться імена двох дітей та кількість у них цукерок. Вивести не екран ім’я тієї дитини, у якої кількість цукерок є більшою, або вивести, що кількість однакова.</td>
+				</tr>
+				<tr>
+					<td>Початкові значення:</td>
+					<td> Ім'я першої дитини ${firstChildName} Кількість цукерок першої дитини ${firstChildSweets} <br> Ім'я другої дитини ${secondChildName}  Кількість цукерок другої дитини ${secondChildSweets} <br> </td>
+				</tr>
+				<tr>
+					<td>Результат</td>
+					<td>${result}</td>
+				</tr>
+			</table>`)
+	</script>
+</body>
+
+</html>

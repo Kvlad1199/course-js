@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 5(додатковий)</title>
+</head>
+<br>
+
+<body>
+	<h1><a href="index.html">Home</a></h1>
+
+	<script>
+		// 		Задача 4. Морський бій. Ворожий корабель, може знаходитись в одному із квадратів (кількість квадратів вводиться з клавіатури), які розташовані лінійно (один за одним) на річці. 
+		// Позиція корабля визначається комп’ютером випадковим чином.
+		// Гра відбувається за правилами: 
+		// 1) якщо користувач стріляє у заданий квадрат (тобто вводиться номер квадрата), то корабель потоплено;
+		// 2) якщо корабель знаходиться у сусідньому по відношенню до квадрата, де знаходиться корабель, то корабель пошкоджено (про це повідомляємо користувача).
+		// За два постріли спробувати потопити корабель.
+
+		// Задача 5 Модифікувати попередню задачу з можливістю після пострілу переміщення корабля
+		// у випадковим чином вибрану сусідню клітинку (якщо звичайно корабель не було потоплено за першим разом).
+		let result;
+
+		let numOfSquares = parseInt(prompt("Введіть кількість квадратиків", "1"))
+		let min = 1;
+		let generetedComputerNum = min + Math.floor(Math.random() * (numOfSquares - min + 1))
+
+		console.log(`Введене число квадратиків ${numOfSquares}`);
+		console.log(`Згенероване число в якому знаходиться корабель ${generetedComputerNum}`);
+
+		let firstTry = parseInt(prompt(`Введіть номер від 1 до ${numOfSquares} для вашого першого пострілу`))
+		let secondTry;
+		if (firstTry === generetedComputerNum) {
+			result = "Ви потопили корабель!"
+
+		} else if (firstTry === (generetedComputerNum--) || firstTry === (generetedComputerNum++)) {
+			console.log("Згенероване число в якому знаходиться корабель -1 або +1 " + generetedComputerNum);
+			generetedComputerNum2 = generetedComputerNum - 1 + Math.floor(Math.random() * ((generetedComputerNum + 1) - (generetedComputerNum - 1) + 1))
+			console.log(`Нове Згенероване число в якому знаходиться корабель ${generetedComputerNum}`);
+			secondTry = parseInt(prompt(`Дуже близько, спробуйте ще раз`, `1`))
+			if (secondTry === generetedComputerNum) {
+				result = "Ви потопили корабель!"
+			} else {
+				result = "Ви програли("
+			}
+		} else {
+			secondTry = parseInt(prompt(`Ваша друга спроба - введіть номер від 1 до ${numOfSquares} окрім ${firstTry} для вашого другого пострілу`))
+			generetedComputerNum2 = generetedComputerNum - 1 + Math.floor(Math.random() * ((generetedComputerNum + 1) - (generetedComputerNum - 1) + 1))
+			console.log(`Нове Згенероване число в якому знаходиться корабель ${generetedComputerNum}`);
+
+			if (secondTry === generetedComputerNum) {
+				result = "Ви потопили корабель!"
+			} else if (secondTry === (generetedComputerNum--) || secondTry === (generetedComputerNum++)) {
+				result = "Корабель пошкоджено!"
+			} else {
+				result = "Ви програли("
+			}
+		}
+		alert(result)
+
+
+
+
+
+		document.write(`
+		<table>
+				<tr>
+					<td>	Задача 4. Морський бій. Ворожий корабель, може знаходитись в одному із квадратів (кількість квадратів вводиться з клавіатури), які розташовані лінійно (один за одним) на річці. 
+					Позиція корабля визначається комп’ютером випадковим чином.
+					Гра відбувається за правилами: 
+					1) якщо користувач стріляє у заданий квадрат (тобто вводиться номер квадрата), то корабель потоплено;
+					2) якщо корабель знаходиться у сусідньому по відношенню до квадрата, де знаходиться корабель, то корабель пошкоджено (про це повідомляємо користувача).
+					За два постріли спробувати потопити корабель.
+
+					Задача 5 Модифікувати попередню задачу з можливістю після пострілу переміщення корабля
+					у випадковим чином вибрану сусідню клітинку (якщо звичайно корабель не було потоплено за першим разом).
+					</td>
+				</tr>
+				<tr>
+					<td>Початкові значення: </td>
+					<td> Введена кількість квадратиків: ${numOfSquares} <br> Згенероване число комп'ютером: ${generetedComputerNum} <br> Перше введене число ${firstTry} <br> Друге згенероване число ${secondTry} <br> Позиція корабля яка може змінитися ${generetedComputerNum2} </td>
+				</tr>
+				<tr>
+					<td>Результат</td>
+					<td>${result}</td>
+				</tr>
+			
+			</table>`)
+
+	</script>
+
+</body>
+
+</html>

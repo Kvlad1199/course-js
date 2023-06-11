@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 2(додатковий)</title>
+</head>
+<br>
+
+<body>
+	<h1><a href="index.html">Home</a></h1>
+
+	<script>
+		//Задача 2.  Комп’ютер випадковим чином вибирає початок і кінець проміжку (проміжок повинен знаходитися в межах від 1 до 100). 
+		//Користувач вводить число і виграє, якщо число знаходиться у цьому проміжку, або розташоване від нього (від лівого або правого краю) не більше ніж на 10.
+
+		// Визначаємо проміжок
+		let result
+		let min = 1
+		let max = 100
+		let a = min + Math.floor(Math.random() * (max - min + 1))
+		let b = min + Math.floor(Math.random() * (max - min + 1))
+		let minInterval
+		let maxInterval
+		//Визначаємо яка точка на інтервалі меньша
+		if (a > b) {
+			minInterval = b
+			maxInterval = a
+		}
+		else {
+			minInterval = a
+			maxInterval = b
+		}
+		// minInterval = minInterval - 10
+		// maxInterval = maxInterval + 10
+
+		let userNum = parseInt(prompt("Введіть число з проміжку(1-100)", "1"))
+
+		if (userNum < 1 || userNum > 100) {
+			result = "Введіть коректні данні"
+		} else {
+			if (userNum >= (minInterval - 10) && userNum <= (maxInterval + 10)) {
+				result = "ви перемогли"
+			} else {
+				result = "ви програли"
+			}
+		}
+		alert(result)
+
+
+
+
+
+		document.write(`<table>
+				<tr>
+					<td>Задача 2. Комп’ютер випадковим чином вибирає початок і кінець проміжку (проміжок повинен знаходитися в межах від 1 до 100). Користувач вводить число і виграє, якщо число знаходиться у цьому проміжку, або розташоване від нього (від лівого або правого краю) не більше ніж на 10.</td>
+				</tr>
+				<tr>
+					<td>Початкові значення:</td>
+					<td> Перша точка : ${a} <br> Друга точка : ${b} <br> Ваше число: ${userNum} <br> Проміжок побудований з ${minInterval} до ${maxInterval} <br> Щоб перемогти потрібно було потрапити в проміжок  з ${minInterval - 10} до ${maxInterval + 10}</td>
+				</tr>
+				<tr>
+					<td>Результат</td>
+					<td>${result}</td>
+				</tr>
+			
+			</table>`)
+
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 7(додатковий)</title>
+</head>
+<br>
+
+<body>
+	<h1><a href="index.html">Home</a></h1>
+
+	<script>
+		//Задача 7. Гра в кості. Правила гри:
+		// 1) користувач може кинути кості не більше двох разів (користувач сам вирішує чи робити, чи не робити другий кидок);
+		// 2) якщо випадає парне число, то кількість балів збільшується на це число;
+		// 3) якщо випадає непарне число, то кількість балів зменшується на це число;
+		// 4) виграє той, у кого кількість балів більша.
+
+		// на кубику може бути число від 1 до 6
+
+		let result;
+
+		let min = 1;
+		let max = 6;
+
+		//Згенеровані 1 числа 
+		let firstUserNum1 = min + Math.floor(Math.random() * (max - min + 1))
+		let secondUserNum1 = min + Math.floor(Math.random() * (max - min + 1))
+		//Змінні в які будуть записуватися бали
+		let firstUserResult = 0;
+		let secondUserResult = 0;
+		//Згенеровані для генерування 2 числа 
+		let firstUserNum2;
+		let secondUserNum2;
+
+
+		console.log(`Число першого користувача ${firstUserNum1}`);
+		console.log(`Число другого користувача ${secondUserNum1}`);
+		if (firstUserNum1 % 2 === 0) {
+
+			firstUserResult = firstUserResult + firstUserNum1
+		}
+		else {
+			firstUserResult = firstUserResult - firstUserNum1
+		}
+
+		if (secondUserNum1 % 2 === 0) {
+
+			secondUserResult = secondUserResult + secondUserNum1
+		}
+		else {
+			secondUserResult = secondUserResult - secondUserNum1
+		}
+		console.log(`Перший результат першого користувача ${firstUserResult}`);
+		console.log(`Перший результат другого користувача ${secondUserResult}`);
+
+		if (confirm(`Перший користувач, хочете ще раз кинути кубик? Ваше перше число ${firstUserNum1}`)) {
+			firstUserNum2 = min + Math.floor(Math.random() * (max - min + 1))
+			console.log(`Друге Число першого користувача ${firstUserNum2}`);
+			if (firstUserNum2 % 2 === 0) {
+
+				firstUserResult = firstUserResult + firstUserNum2
+			}
+			else {
+				firstUserResult = firstUserResult - firstUserNum2
+			}
+		} else {
+
+		}
+
+		console.log(`Другий результат першого користувача ${firstUserResult}`);
+
+		if (confirm(`Другий користувач, хочете ще раз кинути кубик? Ваше перше число ${secondUserNum1}`)) {
+			secondUserNum2 = min + Math.floor(Math.random() * (max - min + 1))
+			console.log(`Друге Число другого користувача ${secondUserNum2}`);
+			if (secondUserNum2 % 2 === 0) {
+
+				secondUserResult = secondUserResult + secondUserNum2
+			}
+			else {
+				secondUserResult = secondUserResult - secondUserNum2
+			}
+		} else {
+
+		}
+		console.log(`Другий результат другого користувача ${secondUserResult}`);
+
+
+		if (firstUserResult > secondUserResult) {
+			result = "Переміг перший користувач!"
+		} else if (firstUserResult === secondUserResult) {
+			result = "Нічия!"
+		} else if (firstUserResult < secondUserResult) {
+			result = "Переміг другий користувач!"
+		} else {
+			result = "Введено некоректні данні"
+		}
+		alert(result)
+
+		document.write(`
+		<table>
+				<tr>
+					<td> Задача 6 Гра в кості. Правила гри:
+							1) користувач може кинути кості не більше двох разів (користувач сам вирішує чи робити, чи не робити другий кидок);
+							2) якщо випадає парне число, то кількість балів збільшується на це число;
+							3) якщо випадає непарне число, то кількість балів зменшується на це число;
+							4) виграє той, у кого кількість балів більша.
+
+					</td>
+				</tr>
+				<tr>
+					<td>Початкові значення: </td>
+					<td>Перше згенерова число для першого користувача ${firstUserNum1} <br> 
+						Перше згенерова число для другого користувача ${secondUserNum1} <br>
+						<br>
+						Друге згенерова число для першого користувача ${firstUserNum2} <br>
+						Друге згенерова число для другого користувача ${secondUserNum2} <br>
+						<br>
+						Кількість балів першого користувача ${firstUserResult}
+						<br>
+						Кількість балів другого користувача ${secondUserResult}
+
+						</td>
+				</tr>
+				<tr>
+					<td>Результат</td>
+					<td>${result}</td>
+				</tr>
+			
+			</table>`)
+
+	</script>
+
+</body>
+
+</html>

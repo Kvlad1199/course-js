@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 3</title>
+</head>
+
+<body>
+
+	<h1><a href="index.html">Home</a></h1>
+	<script>
+		//Задача 3. Випадковим чином генерується число від 1 до 5. Спробуйте вгадати число за 2 спроби.
+		let minNum = 1;
+		let maxNum = 5;
+		let generetedNum = minNum + Math.floor(Math.random() * (maxNum - minNum + 1))
+
+		let result;
+		let secondTry;
+
+		let firstTry = parseInt(prompt("Введіть число від 1 до 5", "1"))
+
+		if (firstTry >= minNum && firstTry <= maxNum) {
+			if (firstTry === generetedNum) {
+				result = "Ви вгадали!"
+			}
+			else {
+				secondTry = parseInt(prompt(`Введіть інше число від 1 до 5 окрім ${firstTry}`, "2"))
+				if (secondTry >= minNum && secondTry <= maxNum) {
+					if (secondTry === generetedNum) {
+						result = "Ви вгадали!"
+					}
+					else {
+						result = "Нажаль ви не вгадали("
+					}
+				}
+				else {
+					result = "ви ввели некоректні данні, будь ласка наступний раз введіть число від 1 до 5"
+				}
+
+			}
+		}
+		else {
+			result = "ви ввели некоректні данні, будь ласка наступний раз введіть число від 1 до 5"
+		}
+
+
+		// if (firstTry === generetedNum) {
+		// 	result = "Ви вгадали!"
+		// }
+		// else {
+		// 	secondTry = parseInt(prompt(`Введіть інше число від 1 до 5 окрім ${firstTry}`, "1"))
+		// 	if (secondTry === generetedNum) {
+		// 		result = "Ви вгадали!"
+		// 	}
+		// 	else {
+		// 		result = "Нажаль ви не вгадали("
+		// 	}
+		// }
+		alert(result)
+		console.log("Згенероване число " + generetedNum);
+		console.log("Перша спроба " + firstTry);
+		console.log("Друга спроба " + secondTry);
+
+
+		document.write(`<table>
+				<tr>
+					<td>Задача 3. Випадковим чином генерується число від 1 до 5. Спробуйте вгадати число за 2 спроби.</td>
+				</tr>
+				<tr>
+					<td>Початкові значення:</td>
+					<td> Згенероване число: ${generetedNum} <br>  Перша спроба вгадати: ${firstTry} <br>  Друга спроба вгадати: ${secondTry} </td>
+				</tr>
+				<tr>
+					<td>Результат</td>
+					<td>${result}</td>
+				</tr>
+				
+				
+			</table>`)
+	</script>
+</body>
+
+</html>

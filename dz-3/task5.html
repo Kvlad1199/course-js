@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 5</title>
+</head>
+
+<body>
+	<h1><a href="index.html">Home</a></h1>
+
+	<script>
+		//Задача 5. З клавіатури вводиться назва категорії водія (А-мотоцикл, В-легковий автомобіль, С-вантажний автомобіль). 
+		//Вивести на екран назву транспортного засобу, яким він може керувати.
+		const DRIVING_CATEGORY_BIKE = "A"
+		const DRIVING_CATEGORY_CAR = "B"
+		const DRIVING_CATEGORY_TRUCK = "C"
+		let result;
+		let drivingCategory = prompt("Введіть назву категорії(A, B, C)", "A")
+
+
+		switch (drivingCategory) {
+			case DRIVING_CATEGORY_BIKE:
+			case "a":
+			case "а":
+			case "А":
+			case "А":
+			case "а":
+				result = "Ви можете водити мотоцикл"
+				break;
+			case DRIVING_CATEGORY_CAR:
+			case "Б":
+			case "б":
+			case "Б":
+			case "б":
+				result = "Ви можете водити легковий автомобіль"
+				break;
+			case DRIVING_CATEGORY_TRUCK:
+			case "С":
+			case "с":
+			case "С":
+			case "с":
+				result = "Ви можете водити вантажний автомобіль"
+				break;
+
+			default:
+				result = "Введено некоректні данні"
+				break;
+		}
+
+		alert(result)
+		document.write(`<table>
+				<tr>
+					<td>Задача 5. З клавіатури вводиться назва категорії водія (А-мотоцикл, В-легковий автомобіль, С-вантажний автомобіль). Вивести на екран назву транспортного засобу, яким він може керувати.</td>
+				</tr>
+				<tr>
+					<td>Початкові значення:</td>
+					<td> Введена користувачем категорія: ${drivingCategory} </td>
+				</tr>
+				<tr>
+					<td>Результат</td>
+					<td>${result} </td>
+				</tr>
+				
+				
+			</table>`)
+	</script>
+</body>
+
+</html>

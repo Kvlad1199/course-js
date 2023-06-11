@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 4</title>
+</head>
+
+<body>
+	<h1><a href="index.html">Home</a></h1>
+
+	<script>
+		//Задача 4. З клавіатури вводиться вік людини. Вивести на екран ким він є (дитиною у садочку, школярем, студентом, працівником, пенсіонером).
+		//Садочок з 2 років до 5
+		//Школа з 5 років до 17
+		//Студент з 17 років до 22
+		//Праціаник з 23 до 55
+		//Пенсіонер 55+
+
+		let userAge = parseInt(prompt("Введіть вік людини", "2"))
+
+		let result;
+		if (userAge < 0 || userAge > 130) {
+			result = "Введено не коректні данні"
+		}
+		else {
+			if (userAge >= 0 && userAge < 2) {
+				result = "Ви ще геть юний"
+			} else if (userAge >= 2 && userAge < 5) {
+				result = "Ви ходите у садочок"
+			} else if (userAge >= 5 && userAge < 18) {
+				result = "Ви ходите до школи"
+			} else if (userAge >= 18 && userAge <= 22) {
+				result = "Ви навчаєтесь в університеті"
+			} else if (userAge > 22 && userAge <= 55) {
+				result = "Ви працівник"
+			} else {
+				result = "Ви пенсіонер"
+			}
+		}
+		alert(result)
+
+		document.write(`<table>
+				<tr>
+					<td>Задача 4 З клавіатури вводиться вік людини. Вивести на екран ким він є (дитиною у садочку, школярем, студентом, працівником, пенсіонером).</td>
+				</tr>
+				<tr>
+					<td>Початкові значення:</td>
+					<td> Вік людини: ${userAge} </td>
+				</tr>
+				
+				<tr>
+					<td>Результат</td>
+					<td>${result}</td>
+				</tr>
+				
+			</table>`)
+	</script>
+</body>
+
+</html>

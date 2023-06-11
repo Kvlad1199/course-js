@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 1(додатковий)</title>
+</head>
+
+<body>
+	<h1><a href="index.html">Home</a></h1>
+
+	<script>
+		//Задача 1.  На екран виводиться меню:
+		// 1. Веселий
+		// 2. Сумний
+		// 3. Обурений
+		// Користувач вводить номер пункту меню і на екрані з’являється відповідне зображення смайла. 
+
+
+		let numOfSmile = parseInt(prompt("Введіть номер смайлика 1. Веселий 2. Сумний 3. Обурений", "1"))
+
+		let result;
+
+		switch (numOfSmile) {
+			case 1: result = "Тут мав бути веселий смайлик"
+				break;
+			case 2: result = "Тут мав бути сумний смайлик"
+				break;
+			case 3: result = "Тут мав бути обурений смайлик"
+				break;
+
+			default:
+				result = "Введено некоректні данні"
+				break;
+		}
+		alert(result)
+		document.write(`<table>
+				<tr>
+					<td>Задача 7. На екран виводиться меню:
+1. Веселий
+2. Сумний
+3. Обурений
+Користувач вводить номер пункту меню і на екрані з’являється відповідне зображення смайла. 
+
+</td>
+				</tr>
+				<tr>
+					<td>Початкові значення:</td>
+					<td> Номер смайлика: ${numOfSmile}   </td>
+				</tr>
+				<tr>
+					<td>Результат</td>
+					<td>${result}</td>
+				</tr>
+			
+			</table>`)
+
+	</script>
+</body>
+
+</html>

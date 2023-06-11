@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 3(додатковий)</title>
+</head>
+<br>
+
+<body>
+	<h1><a href="index.html">Home</a></h1>
+
+	<script>
+		//Задача 3. Комп’ютер загадує число від 1 до 10. Двоє користувачів надають свої відповіді. 
+		//Виграє той, у кого число знаходиться ближче до загаданого комп’ютером числа.
+		let result;
+		let min = 1
+		let max = 10
+		let computerNum = min + Math.floor(Math.random() * (max - min + 1))
+
+		let firstUserNum = parseInt(prompt("Введіть число від 1 до 10", "1"))
+		let secondUserNum = parseInt(prompt("Введіть число від 1 до 10", "10"))
+
+		let differenceFirst = Math.abs(computerNum - firstUserNum);
+		let differenceSecond = Math.abs(computerNum - secondUserNum);
+
+
+		if (Math.abs(differenceFirst) === Math.abs(differenceSecond)) {
+			result = "Нічия"
+		} else if (Math.abs(differenceFirst) < Math.abs(differenceSecond)) {
+			result = "Перший користувач переміг"
+		} else if (Math.abs(differenceFirst) > Math.abs(differenceSecond)) {
+			result = "Другий користувач переміг"
+		} else {
+			result = "Некоректні данні"
+		}
+		alert(result)
+
+		document.write(`
+		<table>
+				<tr>
+					<td>Задача 3. Комп’ютер загадує число від 1 до 10. Двоє користувачів надають свої відповіді. Виграє той, у кого число знаходиться ближче до загаданого комп’ютером числа.</td>
+				</tr>
+				<tr>
+					<td>Початкові значення:</td>
+					<td> Згенероване число комп'ютера: ${computerNum} <br> Перше число: ${firstUserNum} <br> Друге число: ${secondUserNum} <br> Перша різниця ${differenceFirst}<br>  Друга різниця ${differenceSecond} </td>
+				</tr>
+				<tr>
+					<td>Результат</td>
+					<td>${result}</td>
+				</tr>
+			
+			</table>`)
+
+	</script>
+</body>
+
+</html>
