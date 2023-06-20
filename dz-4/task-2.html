@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task -2</title>
+</head>
+
+<body>
+	<h1><a href="index.html">Home</a></h1>
+	<script>
+
+		//Задача -2. Поступово генерувати 100 випадкових чисел від 1 до 1000. Підрахувати яких чисел більше: парних чи непарних.
+
+		const min = 1, max = 1000
+		let computerNum
+		let evenNum = 0
+		let oddNum = 0
+		let result
+
+		for (let i = 0; i < 100; i++) {
+			computerNum = min + Math.floor(Math.random() * (max - min + 1))
+			// console.log(computerNum);
+			if (computerNum % 2 === 0)
+				evenNum++
+			else
+				oddNum++
+		}
+		if (evenNum > oddNum)
+			result = "Парних чисел більше"
+		else if (evenNum < oddNum)
+			result = "Непарних чисел більше"
+		else
+			result = "Кількість непарних та парних чисел рівна!"
+
+		//alert(result)
+		document.write(`
+		<table>
+				<tr>
+					<td>Задача -2. Поступово генерувати 100 випадкових чисел від 1 до 1000. Підрахувати яких чисел більше: парних чи непарних.</td>
+				</tr>
+				<tr>
+					<td>Початкові значення:</td>
+					<td> Кількість парних: ${evenNum} <br> Кількість непарних: ${oddNum} <br> </td>
+				</tr>
+				<tr>
+					<td>Результат</td>
+					<td>${result}</td>
+				</tr>
+			</table>`)
+	</script>
+</body>
+
+</html>

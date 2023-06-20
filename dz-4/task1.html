@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="css/style.css" />
+	<title>Task 1</title>
+</head>
+
+<body>
+	<h1><a href="index.html">Home</a></h1>
+
+	<script>
+		//Задача 1. Вивести з використанням циклів маркований список з випадковими числами (1-100). Кількість випадкових чисел вводиться користувачем. Приклад: 
+		const min = 1, max = 100
+		const userNum = parseInt(prompt("Введіть кількість чисел"))
+		let randomNum
+		let result = ""
+
+		for (let i = 1; i <= userNum; i++) {
+			randomNum = min + Math.floor(Math.random() * (max - min + 1))
+			result += ` <li> ${randomNum} </li> `
+		}
+
+		document.write(`
+			<ul> ${result} </ul>
+			`)
+
+		// document.write(`<table>
+    //   		<tr>
+    //   			<td>Задача 2.З клавіатури вводиться ціна товару і кількість грошей. Якщо грошей не вистачає то відмовляємо у покупці, інакше, якщо ще залишаються гроші, то пропонуємо купити лотерею за 4 грн.</td>
+    //   		</tr>
+    //   		<tr>
+    //   			<td>Початкові значення:</td>
+    //   			<td> Ціна товару: ${priceOfProduct} <br> Гроші: ${userMoney} </td>
+    //   		</tr>
+    //   		<tr>
+    //   			<td>Результат</td>
+    //   			<td>${result}</td>
+    //   		</tr>
+    //   	</table>`)
+	</script>
+</body>
+
+</html>
