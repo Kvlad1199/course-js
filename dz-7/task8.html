@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 8</title>
+</head>
+
+<body>
+	<h1><a href="index.html">Home</a></h1>
+	
+	<script>
+		//Задача 8. Створити функцію, яка виводить банер (у функцію передаються: зображення, заголовок та посилання, куди переходимо при кліку на зображення
+		// (тег img повине знаходитись у середині тега a: <a> <img src=”шлях”> </a>
+		function getRandomNum(min,max) {
+			let result = min + Math.floor(Math.random()*(max - min + 1))
+			return result
+		}
+		
+		function viewRandomBanner(numOfImage,link,title) {
+			let result = `<a target="_blank" href="${link}">${title} <img src="img/0${numOfImage}.jpg" alt=""></a>`
+			return result
+		}
+		let randomNum = getRandomNum(1,4)
+		let banner = viewRandomBanner(randomNum,'https://www.google.com/',"Заголовок")
+		document.write(banner)
+// 		document.write(`<table>
+// 				<tr>
+// 					<td>Задача 7. З клавіатури вводиться номер місяця. Вивести до якої пори він відноситься
+// </td>
+// 				</tr>
+// 				<tr>
+// 					<td>Початкові значення:</td>
+// 					<td> Номер місяця: ${numOfMonth}   </td>
+// 				</tr>
+// 				<tr>
+// 					<td>Результат</td>
+// 					<td>${result}</td>
+// 				</tr>
+			
+// 			</table>`)
+
+	</script>
+</body>
+
+</html>

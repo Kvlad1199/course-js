@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 5</title>
+</head>
+
+<body>
+	<h1><a href="index.html">Home</a></h1>
+
+	<script>
+		//Задача 5. Створити окремі функції, які переводять:
+		// Сантиметри у дюйми;
+		// Кілограми у фунти;
+		// Кілометри у милі.
+
+
+		function getInch(centimeter) {
+			const coefficient = 0.39370
+			const result = coefficient * centimeter
+			return result
+		}
+
+		function getPounds(kilograms) {
+			const coefficient = 2.20462
+			const result = coefficient * kilograms
+			return result
+		}
+		function getMiles(kilometers) {
+			const coefficient = 0.621371
+			const result = coefficient * kilometers
+			return result
+		}
+
+
+
+
+
+
+		let num = parseFloat(prompt("Введіть кількість сантиментів"))
+		let kilograms = parseFloat(prompt("Введіть кількість кілограмів"))
+		let kilometers = parseFloat(prompt("Введіть кількість кілометрів"))
+
+		let inch = getInch(num)
+		let pounds = getPounds(kilograms)
+		let miles = getMiles(kilometers)
+		document.write(`<table>
+				<tr>
+					<td>Задача 5.Створити окремі функції, які переводять:
+Сантиметри у дюйми;
+Кілограми у фунти;
+Кілометри у милі.
+кількість більших за 100. 
+</td>
+				</tr>
+				<tr>
+					<td>Початкові значення:</td>
+					<td> Сантиметри: ${num} <br>  Кілограми: ${kilograms} <br>  Кілометри: ${kilometers}   </td>
+				</tr>
+				<tr>
+					<td>Дюйми</td>
+					<td>${inch.toFixed(2)}</td>
+				</tr>
+				
+				<tr>
+					<td>Фунти</td>
+					<td>${pounds.toFixed(2)}</td>
+				</tr>
+				<tr>
+					<td>Милі</td>
+					<td>${miles.toFixed(2)}</td>
+				</tr>
+				
+				
+				
+			</table>`)
+	</script>
+</body>
+
+</html>

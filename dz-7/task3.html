@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 3</title>
+</head>
+
+<body>
+
+	<h1><a href="index.html">Home</a></h1>
+	<script>
+		//Задача 3. Створити окремі функції, які для 4 чисел знаходять:
+		// 1)суму;
+		// 2)добуток;
+		// 3)середнє арифметичне;
+		// 4)мінімальне значення. 
+
+		function getSum(a, b, c, d) {
+			let result = a + b + c + d
+			return result
+		}
+		function getMultiply(a, b, c, d) {
+			let result = a * b * c * d
+			return result
+		}
+		function getAverage(a, b, c, d) {
+			let result = (a + b + c + d) / 4
+			return result
+		}
+		function getMin(a, b, c, d) {
+			let min = a
+			if (b < min)
+				min = b
+			if (c < min)
+				min = c
+			if (d < min)
+				min = d
+			return min
+		}
+		const num1 = parseFloat(prompt('Введіть перше число'))
+		const num2 = parseFloat(prompt('Введіть друге число'))
+		const num3 = parseFloat(prompt('Введіть третє число'))
+		const num4 = parseFloat(prompt('Введіть четверте число'))
+
+		let sum = getSum(num1, num2, num3, num4)
+		let multiply = getMultiply(num1, num2, num3, num4)
+		let average = getAverage(num1, num2, num3, num4)
+		let min = getMin(num1, num2, num3, num4)
+
+		document.write(`<table>
+				<tr>
+					<td>Задача 3. Створити окремі функції, які для 4 чисел знаходять:
+1)суму;
+2)добуток;
+3)середнє арифметичне;
+4)мінімальне значення. 
+</td>
+				</tr>
+				<tr>
+					<td>Початкові значення:</td>
+					<td> A: ${num1} <br>  B: ${num2} <br>  C: ${num3} <br>  D: ${num4} </td>
+				</tr>
+				<tr>
+					<td>Сумма</td>
+					<td>${sum}</td>
+				</tr>
+				<tr>
+					<td>Добуток</td>
+					<td>${multiply}</td>
+				</tr>
+				<tr>
+					<td>Середнє значення</td>
+					<td>${average}</td>
+				</tr>
+				<tr>
+					<td>Мінімальне значення</td>
+					<td>${min}</td>
+				</tr>
+				
+				
+			</table>`)
+
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 4</title>
+</head>
+
+<body>
+	<h1><a href="index.html">Home</a></h1>
+
+	<script>
+		//Задача 4.  Створити функцію, яка для 3 заданих чисел знаходить одночасно декілька результатів:
+		// кількість парних, кількість додатних, кількість більших за 100.
+
+
+		function getEven(a, b, c) {
+			let evenNum = 0
+			if (a % 2 === 0)
+				evenNum += 1
+			if (b % 2 === 0)
+				evenNum += 1
+			if (c % 2 === 0)
+				evenNum += 1
+			return evenNum
+
+		}
+		function getPositiveNum(a, b, c) {
+			let positiveNum = 0
+			if (a > 0)
+				positiveNum += 1
+			if (b > 0)
+				positiveNum += 1
+			if (c > 0)
+				positiveNum += 1
+			return positiveNum
+		}
+		function getNumGreaterThan100(a, b, c) {
+			let counter = 0
+			if (a > 100)
+				counter += 1
+
+			if (b > 100)
+				counter += 1
+
+			if (c > 100)
+				counter += 1
+			return counter
+		}
+
+		const num1 = parseFloat(prompt('Введіть перше число'))
+		const num2 = parseFloat(prompt('Введіть друге число'))
+		const num3 = parseFloat(prompt('Введіть третє число'))
+
+
+		let evenNum = getEven(num1, num2, num3)
+		let positiveNum = getPositiveNum(num1, num2, num3)
+		let greaterNumThan100 = getNumGreaterThan100(num1, num2, num3)
+
+
+		document.write(`<table>
+				<tr>
+					<td>Задача 4.Створити функцію, яка для 3 заданих чисел знаходить одночасно декілька результатів:
+		кількість парних, кількість додатних, кількість більших за 100. 
+</td>
+				</tr>
+				<tr>
+					<td>Початкові значення:</td>
+					<td> A: ${num1} <br>  B: ${num2} <br>  C: ${num3}   </td>
+				</tr>
+				<tr>
+					<td>Кількість парних</td>
+					<td>${evenNum}</td>
+				</tr>
+				<tr>
+					<td>Кількість більших за 0</td>
+					<td>${positiveNum}</td>
+				</tr>
+				<tr>
+					<td>Кількість більших за 100</td>
+					<td>${greaterNumThan100}</td>
+				</tr>
+				
+				
+				
+			</table>`)
+
+	</script>
+</body>
+
+</html>
