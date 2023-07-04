@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 6</title>
+</head>
+
+<body>
+
+	<h1><a href="index.html">Home</a></h1>
+	<script>
+		//Задача 6. Дано послідовність цін товарів та назв (у окремих масивах). 
+		//Вивести на екран ті, які може собі дозволити користувач (кількість грошей задається).
+		// Функція для вводу назв товарів
+		function getArrNameProducts(countOfProduct) {
+			let arr = []
+			for (let i = 0; i < countOfProduct; i++) {
+				let productName = prompt(`Введіть назву ${i + 1}-го товару`)
+				arr.push(productName)
+			}
+			return arr
+		}
+		//Функція для вводу цін товарів
+		function getPricesArr(productNameArr) {
+			let arr = []
+			for (let i = 0; i < productNameArr.length; i++) {
+				let price = parseFloat(prompt(`Введіть ціну для ${productNameArr[i]}`))
+				arr.push(price)
+			}
+			return arr
+		}
+		// Функція що повертає масив назв продуктів які може дозволити собі користувач
+		function getProductsWhichUserCanBuy(pricesArr, productNameArr, userMoney) {
+			let resArr = []
+			for (let i = 0; i < pricesArr.length; i++) {
+				if (userMoney >= pricesArr[i])
+					resArr.push(productNameArr[i])
+			}
+			return resArr
+		}
+
+		let userMoney = parseFloat(prompt('Введіть кількість грошей користувача'))
+		let productNames = getArrNameProducts(parseInt(prompt('Введіть кількість товарів')))
+		let productPrices = getPricesArr(productNames)
+
+		let result = getProductsWhichUserCanBuy(productPrices, productNames, userMoney)
+
+
+		document.write(`<table>
+				<tr>
+					<td>Задача 6.Дано послідовність цін товарів та назв (у окремих масивах). 
+						Вивести на екран ті, які може собі дозволити користувач (кількість грошей задається).td>
+				</tr>
+				<tr>
+					<td>Початкові значення:</td>
+					<td>Гроші користувача ${userMoney}  </td>
+				</tr>
+				<tr>
+					<td>${productNames}</td>
+					<td>${productPrices}</td>
+				</tr>
+				<tr>
+					<td>Продукти які може купити користувач</td>
+					<td>${result}</td>
+				</tr>
+
+				
+				
+			</table>`)
+	</script>
+</body>
+
+</html>

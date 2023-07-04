@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="css/style.css" />
+	<title>Task 1</title>
+</head>
+
+<body>
+	<h1><a href="index.html">Home</a></h1>
+
+	<script>
+		//Задача 1. Дано масив, який містить оцінки з К предметів. Знайти середній бал і з’ясувати до якої категорії він відноситься 
+		//(відмінник, двійочник (має хоча би одну двійку), хорошист (оцінки добре і відмінно), трійочник(є хоча би одна трійка)). 
+
+
+		//Функція для введення данних в масив
+		function getArr(userLength) {
+			let arr = []
+			for (let i = 0; i < userLength; i++) {
+				let value = parseInt(prompt(`Введіть оцінку з ${i + 1}-го предмету`))
+				arr.push(value)
+			}
+			return arr
+		}
+		//Функція для отримання середньої оцінки
+		function getAverageMark(array) {
+			let sum = array[0]
+			for (let i = 1; i < array.length; i++)
+				sum += array[i]
+
+			return sum / array.length
+		}
+		//Функція для отримання мінімальної оцінки
+		function getMinMark(array) {
+			let min = array[0]
+			for (let i = 1; i < array.length; i++) {
+				if (array[i] < min)
+					min = array[i]
+			}
+			return min
+		}
+		//Функція для отримання фінального результату
+		function getResult(minMark) {
+			let result
+			switch (minMark) {
+				case 5:
+					result = "Відмінник"
+					break;
+				case 4:
+					result = "Хорошист"
+					break;
+				case 3:
+					result = "Трійочник"
+					break;
+				case 2:
+					result = "Двійочник"
+					break;
+				case 1:
+					result = "Одиничник(я не знаю як правильно вас назвати)"
+					break;
+				default:
+					result = "Error 404"
+					break;
+			}
+			return result
+		}
+
+		let marksArr = getArr(parseInt(prompt("Введіть кількість предметів")))
+
+		let averageMark = getAverageMark(marksArr)
+
+		let minMark = getMinMark(marksArr)
+
+		let result = getResult(minMark)
+
+
+
+		document.write(`<table>
+      		<tr>
+      			<td>Задача 1.Дано масив, який містить оцінки з К предметів. Знайти середній бал і з’ясувати до якої категорії він відноситься (відмінник, двійочник (має хоча би одну двійку), хорошист (оцінки добре і відмінно), трійочник(є хоча би одна трійка)).td>
+      		</tr>
+      		<tr>
+      			<td>Початкові значення:</td>
+      			<td> Масив оцінок: [${marksArr}] <br>  </td>
+      		</tr>
+					<tr>
+      			<td>Середнє значення</td>
+      			<td>${averageMark.toFixed(1)}</td>
+      		</tr>
+					<tr>
+      			<td>Мінімальне значення</td>
+      			<td>${minMark.toFixed(1)}</td>
+      		</tr>
+      		<tr>
+      			<td>Результат</td>
+      			<td>${result}</td>
+      		</tr>
+      	</table>`)
+	</script>
+</body>
+
+</html>
