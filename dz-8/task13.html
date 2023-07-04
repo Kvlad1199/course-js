@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 13</title>
+</head>
+
+<body >
+	
+	<h1><a href="index.html">Home</a></h1>
+	<script>
+		//Задача 13. Морський бій. Комп’ютер випадково розташовує одиночний корабель на полі розміром N*M. 
+		//Маючи К снарядів користувач намагається потопити корабель. 
+
+		const N = parseInt(prompt('Введіть N(кількість клітинок по X)'))
+		const M = parseInt(prompt('Введіть M (кількість клітинок по Y)'))
+		
+		const K = parseInt(prompt('Введіть K(кількість снарядів)'))
+		let userX
+		let userY
+		//Кординати корабля
+		const computerX = 1 + Math.floor(Math.random() * N)
+		const computerY = 1 + Math.floor(Math.random() * M)
+
+		let result
+		  for(let i = 1; i <= K; i++){
+			userX = parseInt(prompt(`Спроба №${i}Введіть номер клітинки по X(підказка ${computerX})`))
+			userY = parseInt(prompt(`Спроба №${i}Введіть номер клітинки по Y(підказка ${computerY})`))
+
+			if(userX === computerX && userY === computerY){
+				result = `Ви потопили корабель з ${i} спроби!`
+				break 
+			}
+			else
+				alert(`У вас залишилось ${K-i} снарядів`)
+		}
+		alert(result)
+
+		
+		// document.write(`<table>
+		// 		<tr>
+		// 			<td>Задача 3. Випадковим чином генерується число від 1 до 5. Спробуйте вгадати число за 2 спроби.</td>
+		// 		</tr>
+		// 		<tr>
+		// 			<td>Початкові значення:</td>
+		// 			<td> Згенероване число: ${generetedNum} <br>  Перша спроба вгадати: ${firstTry} <br>  Друга спроба вгадати: ${secondTry} </td>
+		// 		</tr>
+		// 		<tr>
+		// 			<td>Результат</td>
+		// 			<td>${result}</td>
+		// 		</tr>
+				
+				
+		// 	</table>`)
+	</script>
+</body>
+
+</html>

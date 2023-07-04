@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 4</title>
+</head>
+
+<body>
+
+	<h1><a href="index.html">Home</a></h1>
+	<script>
+		//Задача 4. Дано послідовність номерів автомобілів. Підрахувати кількість номерів, які :
+		// •	починаються на букву «А»;
+		// •	перша і остання літери співпадають;
+		// •	складаються з більше ніш 5 символів;
+
+		//Функція для введення номерів в масив
+		function getArr(userLength) {
+			let arr = []
+			for (let i = 0; i < userLength; i++) {
+				let carNumber = prompt(`Введіть ${i + 1}-ший номер`)
+				arr.push(carNumber)
+			}
+			return arr
+		}
+		//Функія яка повертає кількість номерів які починаються на букву - А
+		function getCountCarNumStartA(array) {
+			let counter = 0
+			for (const carNum of array) {
+				if (carNum.charAt(0).toUpperCase() === "A")
+					counter++
+			}
+			return counter
+		}
+		//Функія яка повертає кількість номерів у яких співпадають перша та остання літери
+
+		function getCountMatchingFirstAndLastLetters(array) {
+			let counter = 0
+			for (const carNum of array) {
+				if (carNum.charAt(0) === carNum.charAt(carNum.length - 1))
+					counter++
+			}
+			return counter
+		}
+		// Функція яка повертає кількість слів в яких кількість симнолів більша за 5
+		function getNumbersWithMoreThan5Characters(array) {
+			let counter = 0
+			for (const carNum of array) {
+				if (carNum.length > 5)
+					counter++
+			}
+			return counter
+		}
+
+
+
+
+		let carNumArr = getArr(parseInt(prompt("Кількість номерів")))
+		let counterCarStartA = getCountCarNumStartA(carNumArr)
+		let countFirstAndLastLetter = getCountMatchingFirstAndLastLetters(carNumArr)
+		let countCarCharMore5 = getNumbersWithMoreThan5Characters(carNumArr)
+
+
+
+
+
+		document.write(`<table>
+				<tr>
+					<td>Задача 4. Дано послідовність номерів автомобілів. Підрахувати кількість номерів, які :
+•	починаються на букву «А»;
+•	перша і остання літери співпадають;
+•	складаються з більше ніш 5 символів; </td>
+				</tr>
+				<tr>
+					<td>Початкові значення:</td>
+					<td> Массив номерів: ${carNumArr} <br>  </td>
+				</tr>
+				<tr>
+					<td>Кількість номерів які починаються на букву А</td>
+					<td>${counterCarStartA}</td>
+				</tr>
+				<tr>
+					<td>Кількість номерів які починаються та закінчуються на 1 букву</td>
+					<td>${countFirstAndLastLetter}</td>
+				</tr>
+				<tr>
+					<td>Кількість номерів які складаються з 5 і більше символів</td>
+					<td>${countCarCharMore5}</td>
+				</tr>
+				
+				
+			</table>`)
+	</script>
+	<br>
+</body>
+
+</html>

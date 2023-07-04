@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 9</title>
+</head>
+
+<body >
+	
+	<h1><a href="index.html">Home</a></h1>
+	<script>
+		//Задача 9. Морський бій. Користувач вводить кількість клітинок одновимірного масиву та кількість одиночних кораблів. 
+		//Комп’ютер довільно розміщує ці одиночні кораблі у масиві по один у клітинці
+		// (якщо у клітинці 0, то клітинка пуста, якщо 1 – то це означає, що там є корабель.
+		// Користувач вводить номер клітинки, куди стріляє. 
+		//Гра продовжується до тих пір, поки не будуть потоплені усі кораблі.
+		
+		
+		function getGameTable(tableLenght, shipNum) {
+			let tableArr = new Array(tableLenght).fill(0)
+
+			for (let i = 0; i < shipNum; ) {
+				let randomNum = Math.floor(Math.random() * (tableArr.length + 1))
+				if (tableArr[randomNum] === 0) {
+						tableArr[randomNum] = 1
+						i++
+				}
+			}
+			return tableArr
+		}
+
+		function startGame(gameTable,shipNum) {
+			do {
+				let shot = parseInt(prompt(`Введіть індекс пострілу від 1 до ${gameTable.length}`))
+				if (gameTable[shot-1] === 1 ) {
+					alert('Ви попали')
+					gameTable[shot-1] = 0
+					shipNum--
+				}else
+					alert('Промах')
+
+			} while (shipNum > 0);
+			return gameTable
+		}
+		
+		let tableNum = parseInt(prompt('Введіть кількість клітинок'))
+		let shipNum = parseInt(prompt('Введіть кількість кораблів'))
+		let gameArr = getGameTable(tableNum, shipNum)
+		console.log(`Масив до пострілів :${gameArr}`);
+		
+		
+		startGame(gameArr,shipNum)
+		console.log(`Масив після пострілів :${gameArr}`);
+		// document.write(`<table>
+		// 		<tr>
+		// 			<td>Задача 3. Випадковим чином генерується число від 1 до 5. Спробуйте вгадати число за 2 спроби.</td>
+		// 		</tr>
+		// 		<tr>
+		// 			<td>Початкові значення:</td>
+		// 			<td> Згенероване число: ${generetedNum} <br>  Перша спроба вгадати: ${firstTry} <br>  Друга спроба вгадати: ${secondTry} </td>
+		// 		</tr>
+		// 		<tr>
+		// 			<td>Результат</td>
+		// 			<td>${result}</td>
+		// 		</tr>
+				
+				
+		// 	</table>`)
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 8</title>
+</head>
+
+<body>
+
+	<h1><a href="index.html">Home</a></h1>
+	<script>
+		//Задача 8. Дано одновимірний масив, у якому зберігається певна виграшна сума (елементи заповнюються випадковим чином значеннями від -500 до 500). 
+		//Надаючи користувачу можливість вибирати номери елементів  (поки він не відмовиться). Знаходити сумарний виграш.
+
+		//Функція для створення одновимірного масиву з рандомними значеннями від -500 до 500
+		function getArr(userNum) {
+			const min = -500
+			const max = 500
+			let arr = []
+			for (let i = 0; i < userNum; i++) {
+				let randomNum = min + Math.floor(Math.random() * (max - min + 1))
+				arr.push(randomNum)
+			}
+			return arr
+		}
+		//
+		function getSumWin(array) {
+			let sum = 0
+			do {
+				let userChoice = parseInt(prompt(`Оберіть номер елементу від 0 до ${array.length - 1}`))
+
+				if (array[userChoice] > 0)
+					alert(`Ваш виграш складає ${array[userChoice]} грн`)
+				else if (array[userChoice] === 0)
+					alert(`Шкода, ви нічого не виграли`)
+				else
+					alert(`Ви програли ${array[userChoice]} грн`)
+
+				sum += array[userChoice]
+				let question
+			} while (question = confirm('Чи бажаєте продовжити?'));
+			return sum
+		}
+
+		let arr = getArr(parseInt(prompt('Введіть кількість елементів')))
+		let winSum = getSumWin(arr)
+
+		document.write(`<table>
+				<tr>
+					<td>Задача 8. Дано одновимірний масив, у якому зберігається певна виграшна сума (елементи заповнюються випадковим чином значеннями від -500 до 500). 
+		Надаючи користувачу можливість вибирати номери елементів  (поки він не відмовиться). Знаходити сумарний виграш.</td>
+				</tr>
+				<tr>
+					<td>Початкові значення:</td>
+					<td> Згенерований масив ${arr} </td>
+				</tr>
+				<tr>
+					<td>Виграш користувача</td>
+					<td>${winSum}</td>
+				</tr>
+				
+				
+			</table>`)
+	</script>
+</body>
+
+</html>
