@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 10</title>
+</head>
+
+<body>
+
+	<h1><a href="index.html">Home</a></h1>
+	<script>
+		//Задача 10. Дано масив цін у грн. Податок складає 20%. Сформувати масив, який буде містити величину сплаченого податку у грн.
+
+		function getArr(length) {
+			let pricesArr = []
+			for (let i = 0; i < length; i++) {
+				let price = parseFloat(prompt(`Введіть ціну з індексом ${i + 1}`))
+				pricesArr.push(price)
+			}
+			return pricesArr
+		}
+
+		function getPricesWithTax(array, tax) {
+			let arrPricesWithTax = []
+			for (let i = 0; i < array.length; i++) {
+				let priceWithTax = array[i] * (tax / 100)
+				arrPricesWithTax.push(priceWithTax)
+			}
+			return arrPricesWithTax
+		}
+
+		let pricesArr = getArr(parseInt(prompt("Введіть кількість цін")))
+
+		let pricesArrTax = getPricesWithTax(pricesArr, 20)
+		document.write(`<table>
+				<tr>
+					<td>Задача 10.Дано масив цін у грн. Податок складає 20%. Сформувати масив, який буде містити величину сплаченого податку у грн.</td>
+				</tr>
+				<tr>
+					<td>Початкові значення:</td>
+					<td> Массив цін : ${pricesArr} <br></td>
+				</tr>
+				<tr>
+					<td>Новий масив податку який складає 20 відсотків</td>
+					<td>${pricesArrTax}</td>
+				</tr>
+			</table>`)
+	</script>
+</body>
+
+</html>

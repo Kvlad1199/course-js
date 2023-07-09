@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 7</title>
+</head>
+
+<body>
+
+	<h1><a href="index.html">Home</a></h1>
+	<script>
+		//Задача 7. Дано масив цін. Змінити цей масив так, що на ціни товарів, які більші за 1000 грн. дати 30% знижки.
+		
+		function getArr(length) {
+			let arr = []
+			for (let i = 0; i < length; i++) {
+				let element = prompt(`Введніть ціну за ${i+1} елемент`)
+				arr.push(element)
+			}
+			return arr
+		}
+		let priceArr = getArr(parseInt(prompt("Введіть кількість цін")))
+		console.log(`Массив до змін ${priceArr}`);
+		priceArr.forEach(
+			(element,index,baseArr) => {
+				if (element > 1000) 
+					baseArr[index] *= 0.7
+				
+			}
+		)
+		console.log(`Массив після змін ${priceArr}`);
+		// document.write(`<table>
+		// 		<tr>
+		// 			<td>Задача 7.Дано послідовність платіжок протягом року. Знайти сумарну кількість грошей за:
+		// 				за весь рік;
+		// 				у першій половині року;
+		// 				у другій половині року;
+		// 				за літо;
+		// 				за ІІ квартал;
+		// 				за парні місяці (з парними номерами);
+		// 				за місяці, які є початковими у сезоні (весна, літо, осінь, зима).
+		// 				</td>
+		// 		</tr>
+		// 		<tr>
+		// 			<td>Початкові значення:</td>
+		// 			<td> Масив платіжок:${monthArr} </td>
+		// 		</tr>
+		// 		<tr>
+		// 			<td>Сумма за весь рік</td>
+		// 			<td>${sumOfYear}</td>
+		// 		</tr>
+		// 		<tr>
+		// 			<td>Сумма за першу половину</td>
+		// 			<td>${sumFirstHalf}</td>
+		// 		</tr>
+		// 		<tr>
+		// 			<td>Сумма за другу половину</td>
+		// 			<td>${sumSecondHalf}</td>
+		// 		</tr>
+		// 		<tr>
+		// 			<td>Сумма за літо</td>
+		// 			<td>${sumForSummer}</td>
+		// 		</tr>
+		// 		<tr>
+		// 			<td>Сумма за другий квартал</td>
+		// 			<td>${sumForSecondQuarter}</td>
+		// 		</tr>
+		// 		<tr>
+		// 			<td>Сумма за парні місяці</td>
+		// 			<td>${sumEvenMonth}</td>
+		// 		</tr>
+		// 		<tr>
+		// 			<td>Сумма за місяці які початковими у сезоні</td>
+		// 			<td>${sumSeasonStartMonth}</td>
+		// 		</tr>
+		// 		<tr>
+		// 			<td>Другий варіант обчислення сумми за другу половину</td>
+		// 			<td>${testSecondFunc}</td>
+		// 		</tr>
+				
+				
+		// 	</table>`)
+	</script>
+</body>
+
+</html>

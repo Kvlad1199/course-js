@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 6</title>
+</head>
+
+<body>
+
+	<h1><a href="index.html">Home</a></h1>
+	<script>
+		//Задача 6. Дано масив елементів. Усі елементи, які більші за перший елемент помножити на 2
+
+		function getArr(userLength) {
+			let arr = []
+			for (let i = 0; i < userLength; i++) {
+				let num = parseInt(prompt(`Введіть число для ${i + 1} елементу`))
+				arr.push(num)
+			}
+			return arr
+		}
+		let arr = getArr(parseInt(prompt('Введіть кількість елементів масиву')))
+		alert(`Массив елементів до forEach :${arr}`)
+		arr.forEach(
+			(item,index,baseArr) => {
+				if (item > arr[0])
+					baseArr[index] *= 2
+			}
+		)
+			alert(`Массив після forEach :${arr}`)
+		// document.write(`<table>
+		// 		<tr>
+		// 			<td>Задача 6.Дано масив елементів. Усі елементи, які більші за перший елемент помножити на 2</td>
+		// 		</tr>
+		// 		<tr>
+		// 			<td>Початкові значення:</td>
+		// 			<td>Гроші користувача ${userMoney}  </td>
+		// 		</tr>
+		// 		<tr>
+		// 			<td>${productNames}</td>
+		// 			<td>${productPrices}</td>
+		// 		</tr>
+		// 		<tr>
+		// 			<td>Продукти які може купити користувач</td>
+		// 			<td>${result}</td>
+		// 		</tr>
+
+				
+				
+		// 	</table>`)
+	</script>
+</body>
+
+</html>

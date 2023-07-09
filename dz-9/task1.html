@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="css/style.css" />
+	<title>Task 1</title>
+</head>
+
+<body>
+	<h1><a href="index.html">Home</a></h1>
+
+	<script>
+		//Задача 1.Користувач вводить кількість елементів. Створити масив, що складається з вказаної кількості елементів заповнених нулями.
+
+		function getArr(length) {
+			let arr = new Array(length).fill(0)
+			return arr
+		}
+		let userLength = parseInt(prompt('Введіть кількість елементів'))
+		let arr = getArr(userLength)
+		console.log(`Массив з ${userLength} елементів заповнений всіма нулями: ${arr}`);
+
+		// document.write(`<table>
+    //   		<tr>
+    //   			<td>Задача 1.Дано масив, який містить оцінки з К предметів. Знайти середній бал і з’ясувати до якої категорії він відноситься (відмінник, двійочник (має хоча би одну двійку), хорошист (оцінки добре і відмінно), трійочник(є хоча би одна трійка)).td>
+    //   		</tr>
+    //   		<tr>
+    //   			<td>Початкові значення:</td>
+    //   			<td> Масив оцінок: [${marksArr}] <br>  </td>
+    //   		</tr>
+		// 			<tr>
+    //   			<td>Середнє значення</td>
+    //   			<td>${averageMark.toFixed(1)}</td>
+    //   		</tr>
+		// 			<tr>
+    //   			<td>Мінімальне значення</td>
+    //   			<td>${minMark.toFixed(1)}</td>
+    //   		</tr>
+    //   		<tr>
+    //   			<td>Результат</td>
+    //   			<td>${result}</td>
+    //   		</tr>
+    //   	</table>`)
+	</script>
+</body>
+
+</html>

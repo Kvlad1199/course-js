@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 5</title>
+</head>
+
+<body>
+
+	<h1><a href="index.html">Home</a></h1>
+	<script>
+		//Задача 5.Дано масив елементів. Знайти добуток додатних елементів
+
+		function getArr(userLength) {
+			let arr = []
+			for (let i = 0; i < userLength; i++) {
+				let num = parseInt(prompt(`Введіть число для ${i + 1} елементу`))
+				arr.push(num)
+			}
+			return arr
+		}
+
+		function getNumsPositiveProduct(array) {
+			let positiveNumProduc = 1
+			for (const num of array) {
+				if (num > 0)
+					positiveNumProduc *= num
+			}
+			return positiveNumProduc
+		}
+
+		let arr = getArr(parseInt(prompt('Введіть кількість елементів массиву')))
+		let numPositiveProduct = getNumsPositiveProduct(arr)
+
+		document.write(`<table>
+				<tr>
+					<td>Задача 5. Дано масив елементів. Знайти добуток додатних елементів
+					</td>
+				</tr>
+				<tr>
+					<td>Початкові значення:</td>
+					<td> Масиив оцінок: ${arr} <br></td>
+				</tr>
+				<tr>
+					<td>Добуток додатніх</td>
+					<td>${numPositiveProduct}</td>
+				</tr>
+		 	</table>`)
+	</script>
+</body>
+
+</html>

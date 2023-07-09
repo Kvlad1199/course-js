@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 4</title>
+</head>
+
+<body>
+
+	<h1><a href="index.html">Home</a></h1>
+	<script>
+		//Задача 4. Дано масив елементів. Вивести на екран елементи, що більші за 100
+
+		function getArr(userLength) {
+			let arr = []
+			for (let i = 0; i < userLength; i++) {
+				let num = parseInt(prompt(`Введіть число для ${i + 1} елементу`))
+				arr.push(num)
+			}
+			return arr
+		}
+
+		function getArrMoreThanNum(array, num) {
+			let arrRes = []
+			for (const number of array) {
+				if (number > num)
+					arrRes.push(number)
+			}
+			return arrRes
+		}
+
+		let arr = getArr(parseInt(prompt('Введіть кількість елементів массиву')))
+		let arrMoreThan100 = getArrMoreThanNum(arr, 100)
+
+		document.write(`<table>
+				<tr>
+					<td>Задача 4. Дано масив елементів. Вивести на екран елементи, що більші за 100</td>
+				</tr>
+				<tr>
+					<td>Початкові значення:</td>
+					<td> Массив номерів: [${arr}] <br>  </td>
+				</tr>
+				<tr>
+					<td>Массив номерів більших за 100</td>
+					<td>${arrMoreThan100}</td>
+				</tr>
+			</table>`)
+	</script>
+</body>
+
+</html>

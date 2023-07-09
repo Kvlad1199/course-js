@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 9</title>
+</head>
+
+<body>
+
+	<h1><a href="index.html">Home</a></h1>
+	<script>
+		//Задача 9. Дано масив імен. Сформувати масив з перших літер цих імен.
+
+		function getArr(length) {
+			let namesArr = []
+			for (let i = 0; i < length; i++) {
+				let name = prompt("Введіть ім'я")
+				namesArr.push(name)
+			}
+			return namesArr
+		}
+
+		function getArrFirstLetter(array) {
+			let arrayFirstChar = []
+			for (const carNUm of array)
+				arrayFirstChar.push(carNUm[0])
+
+			return arrayFirstChar
+		}
+		let namesArr = getArr(parseInt(prompt("Введіть кількість імен")))
+
+		let firstLetterArr = getArrFirstLetter(namesArr)
+		document.write(`<table>
+				<tr>
+					<td>Задача 9.Дано масив імен. Сформувати масив з перших літер цих імен.</td>
+				</tr>
+				<tr>
+					<td>Початкові значення:</td>
+					<td> Массив імен : ${namesArr} <br></td>
+				</tr>
+				<tr>
+					<td>Новий масив з перших літер імен</td>
+					<td>${firstLetterArr}</td>
+				</tr>
+				
+				
+			</table>`)
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 3</title>
+</head>
+
+<body>
+
+	<h1><a href="index.html">Home</a></h1>
+	<script>
+		//Задача 3. Користувач вводить кількість елементів. Створити масив, у якому перші 5 елементів заповнені 1-цями, а інші до кінця масиву заповнені 7-ками.
+
+		function getArr(length) {
+			let arr = new Array(length).fill(1, 0, 5).fill(7, 5 )
+			return arr
+		}
+		
+		let userNum = parseInt(prompt('Введіть кількість елементів'))
+		let arr = getArr(userNum)
+		console.log(`Кількість елементів ${userNum}`)
+		console.log(arr)
+		// document.write(`<table>
+		// 		<tr>
+		// 			<td>Задача 3. Дано масив імен учнів. З’ясувати скільки разів зустрічається ім’я «Іван».</td>
+		// 		</tr>
+		// 		<tr>
+		// 			<td>Початкові значення:</td>
+		// 			<td> Масив імен: ${studentArr} <br> </td>
+		// 		</tr>
+		// 		<tr>
+		// 			<td>Кількість Іванів</td>
+		// 			<td>${countNameIvan}</td>
+		// 		</tr>
+				
+				
+		// 	</table>`)
+	</script>
+</body>
+
+</html>

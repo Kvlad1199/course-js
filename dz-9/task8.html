@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 8</title>
+</head>
+
+<body>
+
+	<h1><a href="index.html">Home</a></h1>
+	<script>
+		//Задача 8. Дано масив номерів авто. Сформувати новий масив тих, які починаються на «А»
+
+		function getArr(length) {
+			let arr = []
+			for (let i = 0; i < length; i++) {
+				let carNum = prompt(`Введіть номер з індексом ${i + 1}`)
+				arr.push(carNum)
+			}
+			return arr
+		}
+
+		function getArrCarNumStartA(array) {
+			let carNumArrayStartA = []
+			for (const carNUm of array) {
+				if (carNUm[0].toUpperCase() === "A")
+					carNumArrayStartA.push(carNUm)
+			}
+			return carNumArrayStartA
+		}
+
+
+		let carNumArr = getArr(parseInt(prompt("Введіть кількість номерів авто")))
+		let carNumArrStartA = getArrCarNumStartA(carNumArr)
+
+		document.write(`<table>
+				<tr>
+					<td>Задача 8. Дано масив номерів авто. Сформувати новий масив тих, які починаються на «А»</td>
+				</tr>
+				<tr>
+					<td>Початкові значення:</td>
+					<td> Згенерований масив ${carNumArr} </td>
+				</tr>
+				<tr>
+					<td>Новий масив номерів які починаються на - А</td>
+					<td>${carNumArrStartA}</td>
+				</tr>
+				
+				
+			</table>`)
+	</script>
+</body>
+
+</html>
