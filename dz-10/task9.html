@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 9</title>
+</head>
+
+<body>
+
+	<h1><a href="index.html">Home</a></h1>
+	<script>
+		//Задача 9.Підрахувати суму цін, що більше за 1000
+
+		let userLength = parseInt(prompt('Введіть кількість цін'))
+		//Функція для створення та заповнення массиву данними
+		function getArr(length, min, max) {
+			let arr = []
+			for (let i = 0; i < length; i++) {
+				let randNum = min + Math.floor(Math.random() * (max - min + 1))
+				arr.push(randNum)
+			}
+			return arr
+		}
+		let pricesArr = getArr(userLength, 1, 10000)
+
+		let sumPricesMore100 = pricesArr.reduce(
+			(prevSum, el) => el > 1000 ? prevSum + el : prevSum
+			, 0
+		)
+		document.write(`<table>
+				<tr>
+					<td>Задача 9.Підрахувати суму цін, що більше за 1000</td>
+				</tr>
+				<tr>
+					<td>Початкові значення:</td>
+					<td> Згенерований масив ${pricesArr} </td>
+				</tr>
+				<tr>
+					<td>Сума цін більших за 1000</td>
+					<td>${sumPricesMore100}</td>
+				</tr>
+				
+				
+			</table>`)
+	</script>
+</body>
+
+</html>

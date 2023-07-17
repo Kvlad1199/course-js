@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 4</title>
+</head>
+
+<body>
+
+	<h1><a href="index.html">Home</a></h1>
+	<script>
+		//Задача 4. Сформувати новий масив, що міститиме значення цін у відсотках стосовно максимального
+
+		let userLength = parseInt(prompt('Введіть кількість цін'))
+		//Функція для створення та заповнення массиву данними
+		function getArr(length, min, max) {
+			let arr = []
+			for (let i = 0; i < length; i++) {
+				let randNum = min + Math.floor(Math.random() * (max - min + 1))
+				arr.push(randNum)
+			}
+			return arr
+		}
+
+		let priceArr = getArr(userLength, 1, 10000)
+		// Знаходження максимального
+		let maxPrice = priceArr.reduce(
+			(prevMax, el) => {
+				if (el > prevMax)
+					return el
+				else
+					return prevMax
+			}
+		)
+		// Массив у відсотках до максимального
+		let newArr = priceArr.map(
+			(el) => (el / maxPrice * 100).toFixed(1) + '%'
+		)
+		console.log(newArr);
+
+
+		document.write(`<table>
+				<tr>
+					<td>Задача 4. Дано масив елементів. Вивести на екран елементи, що більші за 100</td>
+				</tr>
+				<tr>
+					<td>Початкові значення:</td>
+					<td> Массив номерів: [${priceArr}] <br>  </td>
+				</tr>
+				<tr>
+					<td>Максимальне значення</td>
+					<td>${maxPrice}</td>
+				</tr>
+				<tr>
+					<td>Массив номерів у відсотках до максимального</td>
+					<td>${newArr}</td>
+				</tr>
+			</table>`)
+	</script>
+</body>
+
+</html>

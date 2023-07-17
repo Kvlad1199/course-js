@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 5</title>
+</head>
+
+<body>
+
+	<h1><a href="index.html">Home</a></h1>
+	<script>
+		//Задача 5.Підрахувати кількість змін цін
+
+		let userLength = parseInt(prompt('Введіть кількість цін'))
+		//Функція для створення та заповнення массиву данними
+		function getArr(length, min, max) {
+			let arr = []
+			for (let i = 0; i < length; i++) {
+				let randNum = min + Math.floor(Math.random() * (max - min + 1))
+				arr.push(randNum)
+			}
+			return arr
+		}
+
+		let priceArr = getArr(userLength, 1, 1000)
+		console.log(priceArr);
+		let countOfChange = priceArr.reduce(
+			(counter, el, i, baseArr) => {
+				if (i > 0 && el !== baseArr[i - 1]) {
+					counter++
+				}
+				return counter
+			}, 0
+		)
+		console.log(countOfChange);
+		document.write(`<table>
+				<tr>
+					<td>Задача 5.Підрахувати кількість змін цін
+					</td>
+				</tr>
+				<tr>
+					<td>Початкові значення:</td>
+					<td> Масив цін: ${priceArr} <br></td>
+				</tr>
+				<tr>
+					<td>Кількість змін</td>
+					<td>${countOfChange}</td>
+				</tr>
+		 	</table>`)
+	</script>
+</body>
+
+</html>

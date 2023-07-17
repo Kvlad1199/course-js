@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 11</title>
+</head>
+
+<body>
+
+	<h1><a href="index.html">Home</a></h1>
+	<script>
+		//Задача 11.Знайти індекс першої ціни, що більше за 1000
+		let userLength = parseInt(prompt('Введіть кількість цін'))
+		//Функція для створення та заповнення массиву данними
+		function getArr(length, min, max) {
+			let arr = []
+			for (let i = 0; i < length; i++) {
+				let randNum = min + Math.floor(Math.random() * (max - min + 1))
+				arr.push(randNum)
+			}
+			return arr
+		}
+		let pricesArr = getArr(userLength, 1, 10000)
+
+		let firstPriceMore1000 = pricesArr.findIndex(
+			(el) => el > 1000
+		)
+		document.write(`<table>
+				<tr>
+					<td>Задача 11.Знайти індекс першої ціни, що більше за 1000</td>
+				</tr>
+				<tr>
+					<td>Початкові значення:</td>
+					<td> Згенерований масив ${pricesArr} </td>
+				</tr>
+				<tr>
+					<td>Індекс першої ціна більша за 1000</td>
+					<td>${firstPriceMore1000}</td>
+				</tr>
+				
+				
+			</table>`)
+	</script>
+</body>
+
+</html>
