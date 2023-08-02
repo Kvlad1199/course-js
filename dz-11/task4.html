@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 4</title>
+</head>
+
+<body>
+
+	<h1><a href="index.html">Home</a></h1>
+	<script>
+		//Задача 4.Знайти суму елементів (право та низ)
+		//Функція для генерування рандомного числа
+		function getRandNum(min, max) {
+			return min + Math.floor(Math.random() * (max - min + 1))
+		}
+		//Функція для генерування одновимірного масиву
+		function getArr(length, min, max) {
+			let arr = []
+			for (let i = 0; i < length; i++) {
+				let num = getRandNum(min, max)
+				arr.push(num)
+			}
+			return arr
+		}
+		//Функція для генерування двовимірного масиву
+		function getTable(row, col, min, max) {
+			let table = []
+			for (let i = 0; i < row; i++) {
+				let arr = getArr(col, min, max)
+				table.push(arr)
+			}
+			return table
+		}
+
+		function getSum(arr, rowStart, rowEnd, colStart, colEnd) {
+			let sum = 0
+			for (let i = rowStart; i <= rowEnd; i++) {
+				for (let j = colStart; j <= colEnd; j++) {
+					sum += arr[i][j]
+				}
+			}
+			return sum
+		}
+		let arr = getTable(6, 6, 0, 1)
+		let sum = getSum(arr, 3, 5, 3, 5)
+		console.log(arr);
+		console.log(sum);
+
+
+		// document.write(`<table>
+		// 		<tr>
+		// 			<td>Задача 4. Дано масив елементів. Вивести на екран елементи, що більші за 100</td>
+		// 		</tr>
+		// 		<tr>
+		// 			<td>Початкові значення:</td>
+		// 			<td> Массив номерів: [${priceArr}] <br>  </td>
+		// 		</tr>
+		// 		<tr>
+		// 			<td>Максимальне значення</td>
+		// 			<td>${maxPrice}</td>
+		// 		</tr>
+		// 		<tr>
+		// 			<td>Массив номерів у відсотках до максимального</td>
+		// 			<td>${newArr}</td>
+		// 		</tr>
+		// 	</table>`)
+	</script>
+</body>
+
+</html>

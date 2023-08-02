@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 2</title>
+</head>
+
+<body>
+
+	<h1><a href="index.html">Home</a></h1>
+	<script>
+		//Задача 2.Дано інформацію про прибуток К магазинів протягом тижня. Знайти :
+		// 2) загальний прибуток усіх магазинів по дням (загальний прибуток усіх магазинів за понеділок, за вівторок, і т.д.);
+
+
+		//Функція для визначення рандомного числа
+		function getRandNum(min, max) {
+			return min + Math.floor(Math.random() * (max - min +1))
+		}
+		//Функція для отримання одновимірного масиву
+		function getArr(array, min, max) {
+			let arr = []
+			for (let i = 0; i < array; i++) {
+				let num = getRandNum(min, max)
+				arr.push(num)
+			}
+			return arr
+		}
+		//Функція для генерації двовимірного масиву
+		function getTable(rowNum, colNum, min, max) {
+			let table = []
+			for (let i = 0; i < rowNum; i++) {
+				let row = getArr(colNum, min, max)
+				table.push(row)
+			}
+			return table
+		}
+		function getProfit(array,dayIndex){
+			let sum = 0
+			for (let i = 0; i < array.length ; i++) {
+				sum += array[i][dayIndex]
+			}
+			return sum
+		}
+		
+		let rowNum = parseInt(prompt('Введіть кількість магазинів'))
+		
+		let table = getTable(rowNum, 7 , 0 , 1)
+		
+		console.log(table);
+		console.log(`Понеділок: ${getProfit(table,0)}`);
+		console.log(`Вівторок: ${getProfit(table,1)}`);
+		console.log(`Середа: ${getProfit(table,2)}`);
+		console.log(`Четвер: ${getProfit(table,3)}`);
+		console.log(`П'ятниця: ${getProfit(table,4)}`);
+		console.log(`Субота: ${getProfit(table,5)}`);
+		console.log(`Неділя: ${getProfit(table,6)}`);
+		
+		// document.write(`<table>
+		// 		<tr>
+		// 			<td>Задача 9.Підрахувати суму цін, що більше за 1000</td>
+		// 		</tr>
+		// 		<tr>
+		// 			<td>Початкові значення:</td>
+		// 			<td> Згенерований масив ${pricesArr} </td>
+		// 		</tr>
+		// 		<tr>
+		// 			<td>Сума цін більших за 1000</td>
+		// 			<td>${sumPricesMore100}</td>
+		// 		</tr>
+				
+				
+		// 	</table>`)
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 3</title>
+</head>
+
+<body>
+
+	<h1><a href="index.html">Home</a></h1>
+	<script>
+		//Задача 3. загальний прибуток за робочі дні
+		
+		
+		//Функція для визначення рандомного числа
+		function getRandNum(min, max) {
+			return min + Math.floor(Math.random() * (max - min +1))
+		}
+		//Функція для отримання одновимірного масиву
+		function getArr(array, min, max) {
+			let arr = []
+			for (let i = 0; i < array; i++) {
+				let num = getRandNum(min, max)
+				arr.push(num)
+			}
+			return arr
+		}
+		//Функція для генерації двовимірного масиву
+		function getTable(rowNum, colNum, min, max) {
+			let table = []
+			for (let i = 0; i < rowNum; i++) {
+				let row = getArr(colNum, min, max)
+				table.push(row)
+			}
+			return table
+		}
+
+		let rowNum = parseInt(prompt('Введіть кількість магазинів'))
+		
+		let table = getTable(rowNum, 7 , 0 , 1)
+
+
+		function getProfitPerDays(table,startDay,EndDay){
+			let sum = 0
+			for (let i = 0; i < table.length; i++) {
+				for (let j = startDay; j <= EndDay; j++) {
+					sum+= table[i][j]
+				}
+			}
+			return sum
+		}
+		let profit = getProfitPerDays(table,0,4)
+		console.log(table);
+		console.log(profit);
+		
+
+		// document.write(`<table>
+		// 		<tr>
+		// 			<td>Задача 10.Знайти першу ціну, що більше за 1000</td>
+		// 		</tr>
+		// 		<tr>
+		// 			<td>Початкові значення:</td>
+		// 			<td> Згенерований масив ${pricesArr} </td>
+		// 		</tr>
+		// 		<tr>
+		// 			<td>Перша ціна більша за 1000</td>
+		// 			<td>${firstPriceMore1000}</td>
+		// 		</tr>
+				
+				
+		// 	</table>`)
+	</script>
+</body>
+
+</html>

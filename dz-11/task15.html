@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 3</title>
+</head>
+
+<body>
+
+	<h1><a href="index.html">Home</a></h1>
+	<script>
+		//Задача 3. Морський бій. 
+		//Випадковим чином на двовимірному полі розміром 6*6 розташовується 5 кораблів.
+		//Користувач стріляє вказуючи координати.
+		//Гра продовжується поки не потоплено усі кораблі або у користувача не закінчаться снаряди.
+
+		function generetGameField(rowsNum, colsNum, shipsNum) {
+			let table = []
+			for (let i = 0; i < rowsNum; i++) {
+				let row = new Array(colsNum).fill(0)
+				table.push(row)
+			}
+
+			for (let i = 0; i < shipsNum;) {
+				const rowInd = Math.floor(Math.random() * rowsNum)
+				const colInd = Math.floor(Math.random() * colsNum)
+				if (table[rowInd][colInd] !== 1) {
+					table[rowInd][colInd] = 1
+					i++
+				}
+			}
+			return table
+		}
+
+		function startGame(table, shipsNum, numOfShots) {
+			let newField = JSON.parse(JSON.stringify(table))
+			do {
+				const userX = parseInt(prompt('Введіть координати по X пострілу'))
+				const userY = parseInt(prompt('Введіть координати по Y пострілу'))
+				if (newField[userX][userY] === 1) {
+					alert('Попали!')
+					newField[userX][userY] = 0
+					shipsNum--
+				}
+				else {
+					alert('Промах')
+				}
+				numOfShots--
+			} while (numOfShots > 0 && shipsNum > 0);
+			return newField
+		}
+
+		let table = generetGameField(6, 6, 5)
+		console.log(table);
+
+		let field = startGame(table, 5, 3)
+		console.log(field);
+
+	</script>
+</body>
+
+</html>

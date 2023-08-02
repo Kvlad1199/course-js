@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 7</title>
+</head>
+
+<body>
+
+	<h1><a href="index.html">Home</a></h1>
+	<script>
+		//Задача 7.У парних рядках – непарні стовпці, у непарних – парні.
+
+		//Функція для генерування рандомного числа
+		function getRandNum(min, max) {
+			return min + Math.floor(Math.random() * (max - min + 1))
+		}
+		//Функція для генерування одновимірного масиву
+		function getArr(length, min, max) {
+			let arr = []
+			for (let i = 0; i < length; i++) {
+				let num = getRandNum(min, max)
+				arr.push(num)
+			}
+			return arr
+		}
+		//Функція для генерування двовимірного масиву
+		function getTable(row, col, min, max) {
+			let table = []
+			for (let i = 0; i < row; i++) {
+				let arr = getArr(col, min, max)
+				table.push(arr)
+			}
+			return table
+		}
+
+		function getSum(arr) {
+			let sum = 0
+			for (let i = 0; i < arr.length; i++) {
+				if (i % 2 === 0) {
+					for (let j = 1; j < arr[i].length; j = j + 2) {
+						sum += arr[i][j]
+					}
+				} else {
+					for (let j = 0; j < arr[i].length; j = j + 2) {
+						sum += arr[i][j]
+					}
+				}
+
+			}
+			return sum
+		}
+		let arr = getTable(6, 6, 0, 1)
+		let sum = getSum(arr)
+		console.log(arr);
+		console.log(sum);
+		// document.write(`<table>
+		// 		<tr>
+		// 			<td>Задача 7.Визначати, чи усі ціни більше за 1000s</td>
+		// 		</tr>
+		// 		<tr>
+		// 			<td>Початкові значення:</td>
+		// 			<td>Массив цін: ${pricesArr}  </td>
+		// 		</tr>
+		// 		<tr>
+		// 			<td>Чи є ціна нижча за 1000</td>
+		// 			<td>${isPriceMore1000}</td>
+		// 		</tr>
+		// 	</table>`)
+	</script>
+</body>
+
+</html>
