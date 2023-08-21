@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 4</title>
+</head>
+
+<body>
+
+	<h1><a href="index.html">Home</a></h1>
+	<script>
+		//Задача 5. Дано масив імен. Застосовуючи відповідне сортування та бінарний пошук визначити, чи є у масиві ім’я «Olga» і під яким індексом.
+
+		const searchName = 'Olga'
+		let names = ['Igor', 'Vlad', 'Olena', 'Kiril', 'Olga', 'Ivan', 'Adam', 'Valeriy', 'Tanya', 'Olga', 'Danis', 'Denis', 'Maks', 'Andre', 'Petro', 'Ivan', 'Adam', 'Valeriy', 'Tanya']
+
+		names.sort()
+
+		function binarySearch(arr, searchElement) {
+			let start = 0
+			let end = arr.length - 1
+			while (start <= end) {
+				const middle = Math.floor((start + end) / 2)
+				if (arr[middle] === searchElement) return middle
+				if (arr[middle] < searchElement) start = middle + 1
+				if (arr[middle] > searchElement) end = middle - 1
+			}
+			return -1
+		}
+		console.log(names);
+
+		let indexOfName = binarySearch(names, searchName)
+		console.log(indexOfName);
+
+		// document.write(`<table>
+		// 		<tr>
+		// 			<td>Задача 4. Дано масив елементів. Вивести на екран елементи, що більші за 100</td>
+		// 		</tr>
+		// 		<tr>
+		// 			<td>Початкові значення:</td>
+		// 			<td> Массив номерів: [${priceArr}] <br>  </td>
+		// 		</tr>
+		// 		<tr>
+		// 			<td>Максимальне значення</td>
+		// 			<td>${maxPrice}</td>
+		// 		</tr>
+		// 		<tr>
+		// 			<td>Массив номерів у відсотках до максимального</td>
+		// 			<td>${newArr}</td>
+		// 		</tr>
+		// 	</table>`)
+	</script>
+</body>
+
+</html>

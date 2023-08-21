@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="css/style.css" />
+	<title>Task 1</title>
+</head>
+
+<body>
+	<h1><a href="index.html">Home</a></h1>
+
+	<script>
+		//Задача 1. Дано масив 30 випадкових цілих чисел. Підрахувати скільки було обмінів під час сортування бульбашкою
+		function getRandNum(min, max) {
+			return min + Math.floor(Math.random() * (max - min + 1))
+		}
+		//Функція для генерування одновимірного масиву
+		function getArr(length, min, max) {
+			let arr = []
+			for (let i = 0; i < length; i++) {
+				let num = getRandNum(min, max)
+				arr.push(num)
+			}
+			return arr
+		}
+
+		let counter = 0
+		function sortBuble(arr) {
+			let changed
+			do {
+				changed = false
+				document.write(`<div style="margin-bottom: 7px;" >${arr} <br></div>`)
+				for (let i = 1; i < arr.length; i++) {
+					if (arr[i - 1] > arr[i]) {
+						let temp = arr[i - 1]
+						arr[i - 1] = arr[i]
+						arr[i] = temp
+						changed = true
+						counter++
+						document.write(`<div style="margin-bottom: 7px;" >${arr} <br></div>`)
+					}
+				}
+			} while (changed);
+			return arr
+		}
+		let arr = getArr(30, -15, 20)
+		sortBuble(arr)
+		console.log(arr);
+		console.log(counter);
+
+
+
+		// document.write(`<table>
+    //   		<tr>
+    //   			<td>Задача 1.Сформувати новий масив, у якому є тільки ті, що більші за 1000 грн.</td>
+    //   		</tr>
+    //   		<tr>
+    //   			<td>Початкові значення:</td>
+    //   			<td> Масив цін: [${priceArrey}] <br>  </td>
+    //   		</tr>
+    //   		<tr>
+    //   			<td>Массив цін більших за 1000</td>
+    //   			<td>[${newArrey}]</td>
+    //   		</tr>
+    //   	</table>`)
+	</script>
+</body>
+
+</html>

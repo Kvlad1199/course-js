@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 2</title>
+</head>
+
+<body>
+
+	<h1><a href="index.html">Home</a></h1>
+	<script>
+//Задача 2. Дано масив 30 випадкових цілих чисел. Підрахувати скільки було обмінів під час сортування змішуванням.
+
+		function getRandNum(min, max) {
+			return min + Math.floor(Math.random() * (max - min + 1))
+		}
+		//Функція для генерування одновимірного масиву
+		function getArr(length, min, max) {
+			let arr = []
+			for (let i = 0; i < length; i++) {
+				let num = getRandNum(min, max)
+				arr.push(num)
+			}
+			return arr
+		}
+		let counter = 0
+		function sortShaker(arr){
+			let leftInd = 0
+			let rightInd = arr.length - 1
+			let changed
+			do {
+				changed = false
+				document.write(`<div style="margin-bottom: 7px;" >${arr} <br></div>`)
+				for(let i = leftInd; i < rightInd; i++){
+					if(arr[i] > arr[i+1]){
+						let tmp = arr[i]
+						arr[i] = arr[i + 1]
+						arr[i + 1] = tmp
+						changed = true
+						counter++
+						document.write(`<div style="margin-bottom: 7px;" >${arr} <br></div>`)
+					}
+				}
+				rightInd--
+				for (let i = rightInd; i > leftInd ; i--) {
+					if(arr[i] < arr[i - 1]){
+						let tmp = arr[i]
+						arr[i] = arr[i - 1]
+						arr[i - 1] = tmp
+						changed = true
+						counter++
+						document.write(`<div style="margin-bottom: 7px;" >${arr} <br></div>`)
+					}
+					
+				}
+				leftInd++
+			} while (changed && leftInd <= rightInd);
+			return arr
+		}
+		let arr = getArr(30, -15, 20)
+		sortShaker(arr)
+		console.log(arr);
+		console.log(counter);
+		
+		
+
+// 		document.write(`<table>
+// 				<tr>
+// 					<td>Задача 2.Сформувати новий масив, у якому є номери тільки тих, що більші за 1000 грн.
+// </td>
+// 				</tr>
+// 				<tr>
+// 					<td>Початкові значення:</td>
+// 					<td> Масив цін: ${priceArrey} <br> </td>
+// 				</tr>
+// 				<tr>
+// 					<td>Массив індексів елементів які більші за 1000:</td>
+// 					<td>${indexArrey} <br> </td>
+// 				</tr>
+				
+				
+				
+// 		 	</table>`)
+	</script>
+</body>
+
+</html>

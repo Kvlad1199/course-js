@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 5</title>
+</head>
+
+<body>
+
+	<h1><a href="index.html">Home</a></h1>
+	<script>
+		//Задача 6. Дано масив імен.
+		// Застосовуючи відповідне сортування та бінарний пошук визначити, чи є у масиві ім’я довжиною 5 символів і під яким індексом.
+		let names = ['Igor', 'Vlad', 'Olena', 'Kiril', 'Olga', 'Ivan', 'Adam', 'Valeriy', 'Pavlo', 'Angelina', 'Tanya', 'Olga', 'Danis', 'Denis', 'Maks', 'Andre', 'Petro', 'Ivan', 'Adam', 'Valeriy']
+
+		function sortBuble(arr) {
+			let changed
+			do {
+				changed = false
+				for (let i = 1; i < arr.length; i++) {
+					if (arr[i - 1].length > arr[i].length) {
+						let temp = arr[i - 1]
+						arr[i - 1] = arr[i]
+						arr[i] = temp
+						changed = true
+					}
+				}
+			} while (changed);
+			return arr
+		}
+
+
+		function binarySearch(arr, searchElementLength) {
+			let start = 0
+			let end = arr.length - 1
+			while (start <= end) {
+				const middle = Math.floor((start + end) / 2)
+				if (arr[middle].length === searchElementLength) return middle
+				if (arr[middle].length < searchElementLength) start = middle + 1
+				if (arr[middle].length > searchElementLength) end = middle - 1
+			}
+			return -1
+		}
+
+		sortBuble(names)
+		console.log(names);
+		let elementLength = binarySearch(names, 5)
+		console.log(elementLength);
+
+		// document.write(`<table>
+		// 		<tr>
+		// 			<td>Задача 5.Підрахувати кількість змін цін
+		// 			</td>
+		// 		</tr>
+		// 		<tr>
+		// 			<td>Початкові значення:</td>
+		// 			<td> Масив цін: ${priceArr} <br></td>
+		// 		</tr>
+		// 		<tr>
+		// 			<td>Кількість змін</td>
+		// 			<td>${countOfChange}</td>
+		// 		</tr>
+		//  	</table>`)
+	</script>
+</body>
+
+</html>
