@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="css/style.css" />
+	<title>Task 1</title>
+</head>
+
+<body>
+	<h1><a href="index.html">Home</a></h1>
+
+	<script>
+		//Задача 1. Нехай , де . Визначити . Розв’язати з використанням рекурсивних і нерекурсивних алгоритмів
+		//Рекурсія
+		function getXRecursive(num) {
+			if (num === 0) return 1
+			else return getXRecursive(num - 1) + 2 * num
+		}
+		// Не рекурсивний алгоритм
+		function getX(num) {
+			let result = 1
+			for (let i = 1; i <= num; i++) {
+				result = result + 2 * i
+			}
+			return result
+		}
+
+		let num = getXRecursive(10)
+		let num2 = getX(10)
+		console.log(num);
+		console.log(num2);
+
+		// document.write(`<table>
+    //   		<tr>
+    //   			<td>Задача 1.Сформувати новий масив, у якому є тільки ті, що більші за 1000 грн.</td>
+    //   		</tr>
+    //   		<tr>
+    //   			<td>Початкові значення:</td>
+    //   			<td> Масив цін: [${priceArrey}] <br>  </td>
+    //   		</tr>
+    //   		<tr>
+    //   			<td>Массив цін більших за 1000</td>
+    //   			<td>[${newArrey}]</td>
+    //   		</tr>
+    //   	</table>`)
+	</script>
+</body>
+
+</html>

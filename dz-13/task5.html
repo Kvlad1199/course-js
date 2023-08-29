@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 5</title>
+</head>
+
+<body>
+
+	<h1><a href="index.html">Home</a></h1>
+	<script>
+		//Задача 5. Тренажер додавання. Кожні 10 секунд користувачу задають випадковий приклад з додавання двох цифр і робиться перевірка. 
+
+		//Функція для генерування випадкового числа 
+		function getRandomNum(min, max) {
+			return Math.floor(Math.random() * (max - min + 1) + min)
+		}
+		//Функція яка буде виводити приклад на екран
+		function alertExample(num1, num2) {
+			let sum = num1 + num2
+			let result = parseInt(prompt(`${num1} + ${num2} = ?`))
+			if (result === sum)
+				alert('Правильно!')
+			else
+				alert(`Неправильно, ${num1} + ${num2} = ${sum}`)
+			return sum
+		}
+
+
+		setInterval(() => {
+			const num1 = getRandomNum(1, 10)
+			const num2 = getRandomNum(1, 10)
+			alertExample(num1, num2)
+		}, 10000
+		)
+		// document.write(`<table>
+		// 		<tr>
+		// 			<td>Задача 5.Підрахувати кількість змін цін
+		// 			</td>
+		// 		</tr>
+		// 		<tr>
+		// 			<td>Початкові значення:</td>
+		// 			<td> Масив цін: ${priceArr} <br></td>
+		// 		</tr>
+		// 		<tr>
+		// 			<td>Кількість змін</td>
+		// 			<td>${countOfChange}</td>
+		// 		</tr>
+		//  	</table>`)
+	</script>
+</body>
+
+</html>
