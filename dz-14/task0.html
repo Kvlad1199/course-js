@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="css/style.css" />
+	<title>Task 1</title>
+
+</head>
+
+<body>
+	<h1><a href="index.html">Home</a></h1>
+
+	<script>
+		document.write('<h2 style="text-align: center; font-size: 45px;">Результати в консолі</h2>')
+		//Задача 1. Описати масив об’єктів – сайтів розроблених компанією з такими властивостями
+		// ----- Властивості ------
+		// назва компанії на час розробки (назву періодично змінюють)
+		// власник компанії
+		// споснсори (масив спонсорів)
+		//			 * прізвище спонсора
+		//       * ім’я  спонсора
+		//       * сума вкладень спонсора
+		// рік випуску
+		// вартість сайту
+		// Знайти:
+		// 1) загальну вартість усіх сайтів
+		// 2) кількість сайтів, що було зроблено між 2000 та 2009 рр.
+		// 3) кількість сайтів, де сума спонсорських вкладень була більшою за 100000
+		// 4) створити загальний список усіх спонсорів (поки можуть повторюватись, просто зібрати усі у масив)
+		// 5) знайти рік, коли прибуток був найбільшим
+		// 6) упорядкувати список за спаданням прибутку
+		// 7) Створити 2 окремих списки з копіями об’єктів, що містять сайти з вартість до 10000 і більше 10000
+
+		const sites = [
+			{
+				title: 'Cpamatica',
+				companyOwner: 'Joshua John',
+				sponsors: [
+					{ surname: 'Kopach', name: 'Victor', amountInvest: '10000' },
+					{ surname: 'Kolesnik', name: 'Vlad', amountInvest: '5000' },
+					{ surname: 'Abramov', name: 'Kiril', amountInvest: '9000' },
+					{ surname: 'Ivanova', name: 'Olena', amountInvest: '12000' },],
+				year: 2017,
+				costOfSite: 50000
+			},
+			{
+				title: 'Silpo',
+				companyOwner: 'Cvigun Oleksandr',
+				sponsors: [
+					{ surname: 'Bezhnar', name: 'Victor', amountInvest: '8000' },
+					{ surname: 'Kolesnik', name: 'Vlad', amountInvest: '8000' },
+					{ surname: 'Hanzh', name: 'Ibragim', amountInvest: '9700' },
+					{ surname: 'Ivanova', name: 'Olena', amountInvest: '2000' },
+					{ surname: 'Ronaldo', name: 'John', amountInvest: '15500' },],
+				year: 2019,
+				costOfSite: 76000
+			},
+			{
+				title: 'NAM',
+				companyOwner: 'Himenez Hector',
+				sponsors: [
+					{ surname: 'Yaroslavsky', name: 'Volodymur', amountInvest: '100000' },
+					{ surname: 'Kolesnik', name: 'Tanya', amountInvest: '9000' },
+					{ surname: 'Arslanov', name: 'Denis', amountInvest: '9900' },
+					{ surname: 'Ivanov', name: 'Ivan', amountInvest: '7000' },
+					{ surname: 'Soprano', name: 'Michael', amountInvest: '3000' },
+					{ surname: 'Vodonosov', name: 'Igor', amountInvest: '11000' },],
+				year: 2015,
+				costOfSite: 100000
+			},
+			{
+				title: 'Dobriy',
+				companyOwner: 'Ivanov Ivan',
+				sponsors: [
+					{ surname: 'Kirinov', name: 'Victor', amountInvest: '19000' },
+					{ surname: 'Pashkovskiy', name: 'Maks', amountInvest: '9000' },
+				],
+				year: 2002,
+				costOfSite: 30000
+			},
+			{
+				title: 'ATB',
+				companyOwner: 'Makki Killian',
+				sponsors: [
+					{ surname: 'Kopach', name: 'Victor', amountInvest: '3000' },
+				],
+				year: 2007,
+				costOfSite: 5000
+			},
+		]
+
+		// 1) загальну вартість усіх сайтів
+		let totalCostOfSites = sites.reduce(
+			(prevTotalSum, site) => prevTotalSum + site.costOfSite,
+			0
+		)
+		console.log(`1)Загальну вартість усіх сайтів - ${totalCostOfSites}`);
+
+		// 2) кількість сайтів, що було зроблено між 2000 та 2009 рр.
+		let numOfSitesBeetwen2000And2009 = sites.reduce(
+			(prevNum, site) => {
+				if (site.year >= 2000 && site.year <= 2009)
+					prevNum++
+				else
+					prevNum
+				return prevNum
+			},
+			0
+		)
+		console.log(`2)Кількість сайтів, що було зроблено між 2000 та 2009 рр. - ${numOfSitesBeetwen2000And2009}`);
+
+		// 3) кількість сайтів, де сума спонсорських вкладень була більшою за 100000
+		let numOfSitesAmountInvestMore100000 = sites.reduce(
+			(prevNum, site) => {
+				let sumOfInvest = site.sponsors.reduce(
+					(prevSum, sponsor) => prevSum + +sponsor.amountInvest,
+					0
+				)
+				if (sumOfInvest > 100000)
+					prevNum++
+				else prevNum
+				return prevNum
+			},
+			0
+		)
+
+
+		console.log(`3)Кількість сайтів, де сума спонсорських вкладень була більшою за 100000 - ${numOfSitesAmountInvestMore100000}`);
+
+		// 4) створити загальний список усіх спонсорів (поки можуть повторюватись, просто зібрати усі у масив)
+
+		function getListOfSponsors(array) {
+			let arrOfSponsors = []
+			for (const obj of array) {
+				let temp = obj.sponsors.map(
+					(el) => { return `${el.surname} ${el.name}` }
+				)
+				arrOfSponsors.push(temp)
+			}
+			return arrOfSponsors
+		}
+		let sponsors = getListOfSponsors(sites)
+
+
+		console.log(`4)Список усіх спонсорів - ${sponsors}`);
+
+		// 5) знайти рік, коли прибуток був найбільшим
+		// let yearWhenCostWasMax = sites.reduce(
+		// 	(prevMax, site) => site.costOfSite > prevMax ? prevMax = site.costOfSite : prevMax
+		// 	, 0
+		// )
+		function getYearWhenCostWasMax(arrayOfObjects) {
+			let max = -Infinity
+			let maxYear
+			for (const obj of arrayOfObjects) {
+				if (obj.costOfSite > max) {
+					max = obj.costOfSite
+					maxYear = obj.year
+				}
+			}
+			return maxYear
+		}
+
+		let yearWhenCostWasMax = getYearWhenCostWasMax(sites);
+		console.log(`5)Знайти рік, коли прибуток був найбільшим - ${yearWhenCostWasMax}`);
+
+		// 6) упорядкувати список за спаданням прибутку
+		sites.sort(
+			(firstCost, secondCost) => secondCost.costOfSite - firstCost.costOfSite
+		)
+		console.log('6)Упорядкований список за спаданням прибутку');
+
+		console.log(sites);
+
+		// 7) Створити 2 окремих списки з копіями об’єктів, що містять сайти з вартість до 10000 і більше 10000
+		function getList(arrayOfObj, cost, modeSwitcher) {
+			let array = []
+			if (modeSwitcher === 1) {
+				for (const obj of arrayOfObj) {
+					if (obj.costOfSite > cost)
+						array.push(obj)
+				}
+			} else if (modeSwitcher === 0) {
+				for (const obj of arrayOfObj) {
+					if (obj.costOfSite < cost)
+						array.push(obj)
+				}
+			}
+			else throw new Error("Uncorrect mode Switcher")
+
+			return array
+		}
+
+		let listMore10000 = getList(sites, 10000, 1)
+		let listLess10000 = getList(sites, 10000, 0)
+		console.log("7)Список з об'єктів ціна яких меньша за 10000");
+		console.log(listLess10000);
+		console.log("7)Список з об'єктів ціна яких більша за 10000");
+		console.log(listMore10000);
+
+	</script>
+
+</body>
+
+</html>
