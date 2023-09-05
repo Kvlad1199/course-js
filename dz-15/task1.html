@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 1</title>
+</head>
+
+<body>
+
+	<h1><a href="index.html">Home</a></h1>
+	<script>
+		document.write('<h2 style="text-align: center; font-size: 45px;">Результати в консолі</h2>')
+		//Задача 1. Створити об’єкт «Тир». У масиві зберігаються 1, якщо у цьому квадраті є заєць і 0 в іншому випадку.
+		// Тир	
+
+		// Поля(властивості)
+		// Масив, у якому зберігається поле з зайцями
+
+		// Методи (дії)
+		// Метод пострілу (задається позиція пострілу)
+		// Виведення ігрового поля
+
+		function ShootingGalery(gameField) {
+			// Масив, у якому зберігається поле з зайцями
+			this.gameField = gameField
+		}
+
+		// Метод пострілу (задається позиція пострілу)
+		ShootingGalery.prototype.shoot = function (indexOfShoot) {
+			if (this.gameField[indexOfShoot] === 1) {
+				this.gameField[indexOfShoot] = 0
+			}
+		}
+		// Виведення ігрового поля
+		ShootingGalery.prototype.logField = function () {
+			console.log(this.gameField);
+		}
+		let arr = [0, 0, 1, 0, 1, 0, 0, 1]
+		let shooting = new ShootingGalery(arr)
+		console.log(shooting);
+
+		shooting.logField()
+		shooting.shoot(2)
+		shooting.logField()
+		shooting.shoot(1)
+		shooting.shoot(0)
+		shooting.logField()
+	</script>
+</body>
+
+</html>

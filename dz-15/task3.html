@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="css/style.css" />
+	<title>Task 3</title>
+</head>
+
+<body>
+	<h1><a href="index.html">Home</a></h1>
+
+	<script>
+		document.write('<h2 style="text-align: center; font-size: 45px;">Результати в консолі</h2>')
+		//Задача 3. Розробити клас MultChecker для перевірки таблиці множення
+		// 		Поля
+		// Число, яке перевіряємо (наприклад, перевірка частини таблиці множення на 7)
+		// Кількість правильних відповідей
+		// Кількість неправильних відповідей
+		// 		Методи
+		// Генерування прикладу (метод випадковим чином визначає друге число, перше число фіксоване)
+		// Перевірка правильності вказаної відповіді
+		// render
+
+
+		function MultChecker(number, correctAnswear, uncorrectAnswear) {
+			this.number = number,
+				this.correctAnswear = correctAnswear,
+				this.uncorrectAnswear = uncorrectAnswear
+		}
+		MultChecker.prototype.getRandomNumber = function (min = 1, max = 9) {
+			return Math.floor(Math.random() * (max - min + 1)) + min
+		}
+		MultChecker.prototype.generateExample = function () {
+			let randNum = this.getRandomNumber()
+			let userAnswear = prompt(`${this.number} * ${randNum}`);
+			userAnswear = parseInt(userAnswear);
+			if (userAnswear === this.number * randNum) { this.correctAnswear++ }
+			else { this.uncorrectAnswear++ }
+		}
+
+		let example = new MultChecker(5, 0, 0)
+		while (confirm('Бажаєте зіграти?')) {
+			example.generateExample()
+			alert(`Correct =${example.correctAnswear} Uncorrect = ${example.uncorrectAnswear}`)
+		}
+		console.log(example);
+	</script>
+</body>
+
+</html>

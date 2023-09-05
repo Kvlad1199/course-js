@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="css/style.css" />
+	<title>Task 5</title>
+</head>
+
+
+<body>
+	<h1><a href="index.html">Home</a></h1>
+
+	<script>
+		document.write('<h2 style="text-align: center; font-size: 45px;">Результати в консолі</h2>')
+		//Задача 5. Розробити клас «Керівник танців»
+		// 		Поля
+		// Масив імен хлопців
+		// Масив імен дівчат
+		// Методи
+		// Метод випадкового вибору імені хлопця
+		// Метод випадкового вибору імені дівчини
+		// Метод виведення пари для танців
+		// Метод run , який ініціює через кожні 5 секунд виведення нової пари для танців
+
+		class danceHead {
+			constructor(boysArr, girlsArr) {
+				this.boysArr = boysArr,
+					this.girlsArr = girlsArr
+			}
+			// Метод випадкового вибору імені хлопця
+			getRandBoy() {
+				const randIndx = Math.floor(Math.random() * this.boysArr.length)
+				return this.boysArr[randIndx]
+			}
+			// Метод випадкового вибору імені дівчини
+			getRandGirl() {
+				const randIndx = Math.floor(Math.random() * this.girlsArr.length)
+				return this.girlsArr[randIndx]
+			}
+			// Метод виведення пари для танців
+			getCouple() {
+				let arr = [this.getRandBoy(), this.getRandGirl()]
+				// console.log(arr);
+
+				return arr
+			}
+			// Метод run , який ініціює через кожні 5 секунд виведення нової пари для танців
+			run() {
+				setInterval(
+					() => {
+						console.log(this.getCouple())
+					},
+					5000
+				)
+			}
+		}
+		let dance = new danceHead(['Vlad', 'Kiril', 'Igor', 'Maks'], ['Inna', 'Tanya', 'Olya'])
+
+		// console.log(dance.getCouple());
+		console.log(`Випадковий хлопець ${dance.getRandBoy()}`);
+		console.log(`Випадкова дівчина ${dance.getRandGirl()}`);
+		console.log(`Випадкова пара ${dance.getCouple()}`);
+		dance.run()
+
+
+	</script>
+</body>
+
+</html>

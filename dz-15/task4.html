@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="css/style.css" />
+	<title>Task 4</title>
+</head>
+
+
+<body>
+	<h1><a href="index.html">Home</a></h1>
+
+	<script>
+		// document.write('<h2 style="text-align: center; font-size: 45px;">Результати в консолі</h2>')
+		//Задача 4. Розробити клас Baner
+		// 		Поля
+		// Масив об’єктів ( графічних зображень та посилань на сайти)
+
+
+		// 		Методи
+		// Метод випадкового вибору об’єкта (графічного зображення та посилання)
+		// Метод виведення випадкового банера
+
+		class Baner {
+
+			constructor() {
+				// Масив об’єктів ( графічних зображень та посилань на сайти)
+				this.dataList = [{
+					href: "https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Classes",
+					imgName: "/img/01.jpg"
+				},
+				{
+					href: "https://www.youtube.com/",
+					imgName: "/img/02.jpg"
+				},
+				{
+					href: "https://www.google.com/",
+					imgName: "/img/03.jpg"
+				},
+				{
+					href: "https://twitter.com/",
+					imgName: "/img/04.jpg"
+				}]
+			}
+			// Метод випадкового вибору об’єкта (графічного зображення та посилання)
+			getRandomObj() {
+				let randIndx = Math.floor(Math.random() * (this.dataList.length))
+				return this.dataList[randIndx]
+			}
+			// Метод виведення випадкового банера
+			docWriteRandBaner() {
+				let obj = this.getRandomObj()
+				document.write(`<a target="_blank" href="${obj.href}">
+		<img src="${obj.imgName}" alt="">
+	</a>`)
+
+			}
+		}
+		let baner = new Baner()
+		baner.docWriteRandBaner();
+
+
+
+
+
+
+
+
+	</script>
+</body>
+
+</html>
