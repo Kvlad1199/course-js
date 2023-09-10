@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 2</title>
+</head>
+
+<body>
+
+	<h1><a href="index.html">Home</a></h1>
+	<script>
+		document.write('<h2 style="text-align: center; font-size: 45px;">Результати в консолі</h2>')
+		//Задача 2. Створити клас TMoney для роботи з грошовими сумами.
+		// Сума повинна зберігатися у вигляді доларового еквіваленту. 
+		//Реалізувати методи додавання/вилучення грошової маси, вказуючи необхідну суму у гривнях, та визначення курсу долара, при якому сума у гривнях збільшиться на 100. Курс долара зберігати в окремому полі.
+		class TMoney {
+			#moneyInDollar
+			#dollarRate
+			constructor(initMoney, initDollarRate) {
+				this.Money = initMoney
+				this.DollarRate = initDollarRate
+			}
+			get Money() {
+				return this.#moneyInDollar
+			}
+			set Money(value) {
+				if (value < 0)
+					throw new Error("Гроші в мінусі")
+
+				this.#moneyInDollar = value
+			}
+			get DollarRate() {
+				return this.#dollarRate
+			}
+			set DollarRate(value) {
+				if (value < 0)
+					throw new Error("Курс доллара меньше 0")
+
+				this.#dollarRate = value
+			}
+			//Метод додавання грошової валюти в гривнях
+			addMoney(uah) {
+				this.Money += uah / this.DollarRate
+			}
+			//Метод вилучення грошової валюти в гривнях
+			removeMoney(uah) {
+				if (this.Money * this.DollarRate < uah) throw new Error("Недостатньо коштів на балансі")
+				this.Money -= uah / this.DollarRate
+			}
+			// вказуючи необхідну суму у гривнях, та визначення курсу долара, при якому сума у гривнях збільшиться на 100
+			getNewCourseDollar() {
+				return (this.Money * this.DollarRate + 100) / this.Money
+			}
+			toString() {
+				return `Money: ${this.Money}. Dollar rate: ${this.DollarRate}`
+			}
+		}
+		let test = new TMoney(1200, 40)
+		console.log(test);
+		test.addMoney(355)
+		console.log(test);
+		test.removeMoney(500)
+		console.log(test);
+		console.log(test.getNewCourseDollar());
+
+
+	</script>
+</body>
+
+</html>

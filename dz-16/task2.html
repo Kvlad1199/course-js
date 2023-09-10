@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="css/style.css" />
+	<title>Task 3</title>
+</head>
+
+<body>
+	<h1><a href="index.html">Home</a></h1>
+
+	<script>
+		document.write('<h2 style="text-align: center; font-size: 45px;">Результати в консолі</h2>')
+		// Задача 3. Об’єкт “Фірма” (використати члени-класи)
+		// поля
+		// назва фірми;
+		// дата заснування (рік, місяць);
+		// послуги (назва послуги, вартість, термін виконання);
+		// адреси філіалів (країна, місто, вулиця, номер будинку);
+		// методи
+		// визначення кількості років існування фірми;
+		// виведення всіх філіалів фірми у вказаному місті;
+		// виведення на екран послуг, що можуть бути виконані за вказану суму грошей та вказаний термін часу;
+
+		class Service {
+			constructor(initServiceName, initServicePrice, initServiceDeadline) {
+				this.serviceName = initServiceName
+				this.servicePrice = initServicePrice
+				this.serviceDeadline = initServiceDeadline
+			}
+			toString() {
+				return `${this.serviceName} - ${this.servicePrice} - ${this.serviceDeadline}`
+			}
+		}
+
+
+		class AddressBranch {
+			constructor(initCountry, initSity, initStreet, initHouseNum) {
+				this.country = initCountry
+				this.sity = initSity
+				this.street = initStreet
+				this.houseNum = initHouseNum
+			}
+
+			toString() {
+				return ` ${this.country} ${this.sity} ${this.street} ${this.houseNum}`
+			}
+		}
+
+		class Firm {
+			#monthEstablish
+			#yearEstablish
+			constructor(initFirmName, initMonthEstablish, initYearEstablish, initAddresses, initServices) {
+				this.firmName = initFirmName
+				this.MonthEstablish = initMonthEstablish
+				this.YearEstablish = initYearEstablish
+				this.branchAdresses = initAddresses
+				this.services = initServices
+			}
+			get MonthEstablish() {
+				return this.#monthEstablish
+			}
+			set MonthEstablish(newVal) {
+				if (newVal < 1 || newVal > 12)
+					throw new Error('Некоректний номер місяця')
+				this.#monthEstablish = newVal
+			}
+			get YearEstablish() {
+				return this.#yearEstablish
+			}
+			set YearEstablish(newVal) {
+				if (newVal < 0)
+					throw new Error('Некоректний рік')
+				this.#yearEstablish = newVal
+			}
+
+			//Визначення кількості років існування фірми;
+			get numYearsOfCompany() {
+				return 2023 - this.YearEstablish
+			}
+			//Виведення всіх філіалів фірми у вказаному місті;
+			getAllBranchInCity(cityName) {
+				return this.branchAdresses.filter(
+					addres => addres.sity === cityName
+				)
+			}
+			// виведення послуг, що можуть бути виконані за вказану суму грошей та вказаний термін часу;
+			getServicesCanDoMoneyAndTime(money, time) {
+				return this.services.filter(
+					service => service.servicePrice === money && service.serviceDeadline === time
+				)
+			}
+			toString() {
+				return `${this.firmName} - ${this.MonthEstablish}.${this.YearEstablish}`
+			}
+		}
+		//========================================================================================================================================================
+		let services = [
+			new Service('Мийка', 120, 1),
+			new Service('Послуга секретна', 410, 4),
+			new Service('Доставка', 120, 2),
+			new Service('Таксі', 45, 1),
+			new Service('Послуга №5', 520, 8),
+			new Service('Послуга №6', 120, 2),
+		]
+		let addresses = [
+			new AddressBranch('Україна', 'Київ', 'Басейна', 2),
+			new AddressBranch('Україна', 'Житомир', 'Лесі Українки', 21),
+			new AddressBranch('Україна', 'Київ', 'Васильківська', 17),
+			new AddressBranch('Польща', 'Вроцлав', 'Героїв України', 1),
+			new AddressBranch('Великобританія', 'Манчестер', 'Олександра Зінченка', 45),
+			new AddressBranch('Україна', 'Львів', 'Івана Франка', 2),
+		]
+		let firm = new Firm('Khoryv', 7, 2017, addresses, services)
+		console.log(firm.getAllBranchInCity('Київ'));
+		console.log(firm.getServicesCanDoMoneyAndTime(120, 2));
+		document.write(firm)
+	</script>
+</body>
+
+</html>

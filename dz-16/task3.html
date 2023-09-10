@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="css/style.css" />
+	<title>Task 4</title>
+</head>
+
+<body>
+	<h1><a href="index.html">Home</a></h1>
+
+	<script>
+		document.write('<h2 style="text-align: center; font-size: 45px;">Результати в консолі</h2>')
+		//Задача 4. Створити клас TBankomat, який моделює роботу банкомата. 
+		//Клас повинен містити поля для зберігання кількості купюр кожного із номіналів від 5 до 200 гривень.
+		//Реалізувати методи знаходження максимальної та мінімальної сум, які може видати банкомат, та метод зняття деякої суми.
+
+		class Banknote {
+			#banknoteValue
+			#banknoteCount
+			constructor(initValue, initCount) {
+				this.BanknoteValue = initValue
+				this.BanknoteCount = initCount
+			}
+			get BanknoteValue() {
+				return this.#banknoteValue
+			}
+			set BanknoteValue(newVal) {
+				if (newVal < 0)
+					throw new Error("Невірне значення банкноти")
+				this.#banknoteValue = newVal
+			}
+			get BanknoteCount() {
+				return this.#banknoteCount
+			}
+			set BanknoteCount(newVal) {
+				if (newVal < 0)
+					throw new Error("Кільіксть купюр не може бути меньшою 0")
+				this.#banknoteCount = newVal
+			}
+
+			get TotalBanknoteSum() {
+				return this.BanknoteCount * this.BanknoteValue
+			}
+		}
+
+		class TBankomat {
+
+			constructor(initBanknotes) {
+				this.banknotes = initBanknotes
+			}
+			// Метод знаходження максимальної
+			get MaxSumToWithdrawal() {
+				return this.banknotes.reduce(
+					(prevTotalSum, banknote) => {
+						return prevTotalSum + banknote.TotalBanknoteSum
+					}, 0
+				)
+			}
+			// Метод знаходження мінімального
+			get MinSumToWithDrawal() {
+				this.banknotes.sort(
+					(banknt1, banknt2) => banknt1.BanknoteValue - banknt2.BanknoteValue
+				)
+				for (const banknote of banknotes) {
+					if (banknote.BanknoteCount > 0)
+						return banknote.BanknoteValue
+				}
+			}
+			//Метод зняття грошей
+			withdrawal(amountMoney) {
+				if (amountMoney > this.MaxSumToWithdrawal)
+					throw new Error('В банкоматі не достатньо грошей')
+
+				if (amountMoney % 5 !== 0)
+					throw new Error('Банкомат не може видати таку суму(Сума повинна бути кратною 5)')
+
+				this.banknotes.sort(
+					(b1, b2) => b2.BanknoteValue - b1.BanknoteValue
+				)
+				const selectedBanknotes = {};
+
+				// Проходимося по відсортованих купюрах
+				for (const banknote of this.banknotes) {
+					const { BanknoteValue, BanknoteCount } = banknote;
+
+					// Визначаємо, скільки купюр цього номіналу можемо використати
+					const countToUse = Math.min(Math.floor(amountMoney / BanknoteValue), BanknoteCount);
+
+					// Записуємо кількість вибраних купюр у результат
+					selectedBanknotes[BanknoteValue] = countToUse;
+
+					// Віднімаємо від суми кількість використаних купюр
+					amountMoney -= BanknoteValue * countToUse;
+				}
+
+
+				// Перевіряємо, чи вдалося вивести всю суму
+				if (amountMoney !== 0) {
+					throw new Error("Неможливо вивести запитану суму грошей");
+				}
+
+				// Оновлюємо лічильники банкнот в банкоматі
+				for (const banknote of this.banknotes) {
+
+					const { BanknoteValue } = banknote;
+					if (selectedBanknotes[BanknoteValue] > 0) {
+						banknote.BanknoteCount -= selectedBanknotes[BanknoteValue];
+					}
+				}
+
+				// Повертаємо об'єкт з вибраними купюрами
+				return selectedBanknotes;
+			}
+		}
+		let banknotes = [
+			new Banknote(5, 15),
+			new Banknote(10, 12),
+			new Banknote(200, 11),
+			new Banknote(20, 54),
+			new Banknote(50, 109),
+			new Banknote(100, 145),
+
+		]
+		console.log(banknotes);
+
+		let testBankomat = new TBankomat(banknotes)
+		console.log(testBankomat.MaxSumToWithdrawal);
+
+		console.log(testBankomat.withdrawal(190)
+		);
+
+	</script>
+</body>
+
+</html>
