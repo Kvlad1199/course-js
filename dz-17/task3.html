@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="css/style.css" />
+	<title>Task 4</title>
+</head>
+
+<body>
+	<h1><a href="index.html">Home</a></h1>
+
+	<script>
+		document.write('<h2 style="text-align: center; font-size: 45px;">Результати в консолі</h2>')
+		//Задача 4. Особиста бібліотека. Картотека домашньої бібліотеки: дані книги (автори (піб, рік народження, короткий опис), назва книги, жанр, видавництво (назва, реєстраційний номер, рік засування)). Реалізувати розділи бібліотеки організувати додавання/вилучення книг та  вибір книг за назвою, за ПІБ автора, за видавництвом.
+
+		// Клас бібліотека
+		// масив книг
+		// Методи
+		// додавання/вилучення книг та  вибір книг за назвою, за ПІБ автора, за видавництвом.
+
+
+
+
+		class Library {
+			constructor(initBooks) {
+				this.books = initBooks
+			}
+			//Метод додавання книги
+			addBook(book) {
+				this.books.push(book)
+			}
+			//Метод видалення книги за назвою
+			removeBook(nameOfBook) {
+				this.books = this.books.filter(
+					(book) => book.bookName !== nameOfBook
+				)
+			}
+			//Вибір книг за назвою
+			getBookByName(nameOfBook) {
+				return this.books.filter(
+					(book) => book.bookName === nameOfBook
+				)
+			}
+			//Вибір книг за ПІБ автора
+			getBookByAuthorName(fullAuthorsName) {
+				return this.books.filter(
+					(book) => {
+						return book.authors.some((author) => author.fullName === fullAuthorsName)
+					}
+				)
+			}
+			//Вибір книги за видавництвом
+			getBookByPublishing(searchedPublishing) {
+				return this.books.filter(
+					book => book.publishing.name === searchedPublishing
+				)
+			}
+		}
+		// 		class Book{
+		// -властивості-
+		//  автори = [new Author(),new Author()]
+		//  назва книги
+		//  жанр
+		//  publishing= new Publishing()
+		// }
+		class Book {
+			constructor(initAuthorsArr, initBookName, initGenre, initPublishingName, initYear, initRegistretionNum) {
+				this.bookName = initBookName
+				this.genre = initGenre
+				this.publishing = new Publishing(initPublishingName, initYear, initRegistretionNum)
+				this.authors = initAuthorsArr
+			}
+		}
+		//Клас Видавництво
+		// {
+		// -властивості-
+		//  назва
+		//  рік заснування
+		//  реєстраційний номер
+		// }
+		class Publishing {
+			#foundationYear
+			#registrationNumber
+			constructor(initPublishingName, initYear, initRegistretionNum) {
+				this.FoundationYear = initYear
+				this.RegistretionNumber = initRegistretionNum
+				this.name = initPublishingName
+			}
+			get FoundationYear() {
+				return this.#foundationYear
+			}
+			set FoundationYear(newVal) {
+				if (newVal < 0)
+					throw new Error('Некоректний рік')
+
+				this.#foundationYear = newVal
+			}
+			get RegistretionNumber() {
+				return this.#registrationNumber
+			}
+			set RegistretionNumber(newVal) {
+				if (newVal.length < 6)
+					throw new Error('Занадто короткий реєстраційний номер')
+
+				this.#registrationNumber = newVal
+			}
+		}
+		//Клас Автор
+		// {
+		// -властивості-
+		//  ПІБ
+		//  рік народження
+		//  короткий опис
+		// }
+		class Author {
+			#yearOfBirth
+			constructor(initYearOfBirth, initName, initDescription) {
+				this.YearOfBirth = initYearOfBirth
+				this.fullName = initName
+				this.description = initDescription
+			}
+			get YearOfBirth() {
+				return this.#yearOfBirth
+			}
+			set YearOfBirth(newVal) {
+				if (newVal < 0)
+					throw new Error('Некоректний рік')
+
+				this.#yearOfBirth = newVal
+			}
+		}
+
+		let book1 = new Book([new Author(1991, 'Kop Vladlen Ivanovich', 'This is description!!!!'),
+		new Author(1986, 'Beaznach Valeriy Igorovich', 'Valeriy was ...............')], 'Book 1', 'Geography', 'Laos', 1990, '120080217')
+		let book2 = new Book([new Author(1891, 'Kalinu Vladlen Igorov', 'This is description!!!!'),
+		new Author(1986, 'Test Name Surname', 'Valeriy was ...............')], 'Book 2', 'Geography', 'Laos', 1990, '12380217')
+		let book3 = new Book([new Author(1956, 'Test Name Surname', 'This is description!!!!'),
+		], 'Book 3', 'History', 'India', 1990, '12980217')
+		let library = new Library([book1, book2, book3])
+		console.log(library);
+		library.addBook(new Book([new Author(1991, 'Kop Vladlen Ivanovich', 'This is description!!!!'),
+		new Author(1986, 'Beaznach Valeriy Igorovich', 'Valeriy was ...............')], 'Book 4', 'History', 'Kipr', 2001, '12890214'))
+		console.log(library);
+		//library.removeBook('Book 1')
+		console.log(library);
+		let tempBook = library.getBookByName('Book 2')
+		console.log(tempBook);
+		let tempBook2 = library.getBookByAuthorName('Test Name Surname')
+		console.log(tempBook2);
+		console.log(library);
+
+		let tempBook3 = library.getBookByPublishing('India')
+		console.log(tempBook3);
+
+	</script>
+</body>
+
+</html>

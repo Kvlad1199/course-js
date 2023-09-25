@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="css/style.css" />
+	<title>Task 1</title>
+
+</head>
+
+<body>
+	<h1><a href="index.html">Home</a></h1>
+
+	<script>
+		document.write('<h2 style="text-align: center; font-size: 45px;">Результати в консолі</h2>')
+		//Задача 1.Створити клас, що дозволяє виконувати такі операції над масивами: знаходження кількості додатних, кількості від’ємних, кількість входжень деякого числа (статичні методи)
+
+		class ArrayOperations {
+			static getCountPositiveNumbers(array) {
+				return array.reduce((prevNum, num) => num > 0 ? prevNum + 1 : prevNum, 0)
+			}
+			static getCountNegativeNumbers(array) {
+				return array.reduce((prevNum, num) => num < 0 ? prevNum + 1 : prevNum, 0)
+			}
+			static getOccurenceNumber(array, searchNumber) {
+				return array.reduce((prevNum, num) => num === searchNumber ? prevNum + 1 : prevNum, 0)
+			}
+		}
+		let arr = [-1, -1, -4, 2, 2, 2, 7, 9]
+		console.log(ArrayOperations.getCountPositiveNumbers(arr));
+		console.log(ArrayOperations.getCountNegativeNumbers(arr));
+		console.log(ArrayOperations.getOccurenceNumber(arr, 2));
+
+
+
+	</script>
+
+</body>
+
+</html>

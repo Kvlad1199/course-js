@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 2</title>
+</head>
+
+<body>
+
+	<h1><a href="index.html">Home</a></h1>
+	<script>
+		document.write('<h2 style="text-align: center; font-size: 45px;">Результати в консолі</h2>')
+		//Задача 2. Створити службове авто (водій, марка, номер). 
+		//Створити клас таким чином, щоб можна було створити тільки один екземпляр цього класу.
+
+		class Car {
+			static carRef
+			constructor(initDriver, initMark, initCarNum) {
+
+				if (Car.carRef)
+					return Car.carRef
+
+				this.driver = initDriver
+				this.mark = initMark
+				this.num = initCarNum
+
+				Car.carRef = this
+			}
+
+		}
+		let car1 = new Car('Vasya', 'Opel', 8745)
+		let car2 = new Car('Ivan', 'Volvo', 1715)
+		console.log(car1);
+		console.log(car2);
+
+
+	</script>
+</body>
+
+</html>
