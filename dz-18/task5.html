@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<!-- <link rel="stylesheet" href="css/style.css" /> -->
+	<title>Task 6</title>
+</head>
+
+<body>
+	<h1><a href="index.html">Home</a></h1>
+
+	<div>
+		<label for="marksNum">Кількість оцінок</label>
+		<input id="marksNum" type="number" class="input">
+	</div>
+
+	<button id="getTable">Get table</button>
+	<script>
+		//Задача 6. Користувач задає кількість оцінок і натискає на кнопку «get table». В результаті формується таблиця з input, куди користувач вводить оцінки. Після цього натискає на кнопку “get sum” і знаходить середнє значення.
+
+		function getTable() {
+			const marksNum = parseInt(document.getElementById('marksNum').value)
+			const testDiv = document.createElement('div')
+
+			testDiv.setAttribute('class', 'wrapper')
+			document.getElementById('getTable').after(testDiv)
+
+			for (let i = 0; i < marksNum; i++) {
+				const div = document.createElement('div')
+				const input = document.createElement('input')
+				input.setAttribute('class', 'inp')
+				testDiv.append(div)
+				div.append(input)
+			}
+
+			const btn = document.createElement('button')
+			btn.innerText = 'get sum'
+			btn.setAttribute('id', 'getSum')
+			testDiv.after(btn)
+
+			btn.onclick = getSum
+		}
+		function getSum() {
+			const inpList = document.querySelectorAll('.inp')
+			let sum = 0
+			for (const inp of inpList) {
+				sum += parseInt(inp.value)
+			}
+			const res = sum / inpList.length
+			const tempDiv = document.createElement('div')
+			tempDiv.innerText = `Середній бал: ${res.toFixed(1)}`
+			document.getElementById('getSum').after(tempDiv)
+		}
+		window.onload = function () {
+			document.getElementById('getTable').onclick = getTable
+			// document.getElementById('getSum').onclick = getSum
+		}
+	</script>
+</body>
+
+</html>

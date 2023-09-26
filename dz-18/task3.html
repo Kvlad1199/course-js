@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="css/style.css" />
+	<title>Task 4</title>
+</head>
+
+<body>
+	<h1><a href="index.html">Home</a></h1>
+
+	<script>
+		//Задача 4. Наперед задано у скрипті масив зі списком бажань. Після завантаження сторінки випадковим чином вибираються 3 і відображаються у окремих div (їх треба створити і додати на сторінку)
+
+		const wishesList = [
+			'Бажання №1',
+			'Бажання №2',
+			'Бажання №3',
+			'Бажання №4',
+			'Бажання №5',
+			'Бажання №6',
+			'Бажання №7',
+			'Бажання №8',
+			'Бажання №9',
+			'Бажання №10',
+			'Бажання №11',
+			'Бажання №12',
+			'Бажання №13',
+			'Бажання №14',
+			'Бажання №15',
+		]
+		function getWishes(arr, wishesCount) {
+			const h1 = document.querySelector('h1')
+			for (let i = 0; i < wishesCount; i++) {
+				const randIndx = Math.floor(Math.random() * arr.length)
+				const divEl = document.createElement('div')
+				divEl.innerText = arr[randIndx]
+				h1.after(divEl)
+			}
+		}
+		getWishes(wishesList, 3)
+	</script>
+</body>
+
+</html>

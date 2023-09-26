@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<!-- <link rel="stylesheet" href="css/style.css" /> -->
+	<title>Task 7</title>
+</head>
+
+<body>
+	<h1><a href="index.html">Home</a></h1>
+
+	<select id="transport">
+		<option value="100">Автобус(100)</option>
+		<option value="200">Авто(200)</option>
+		<option value="300">Літак(300)</option>
+	</select>
+	<br>
+	<label for="inp1">Сніданок(30)</label>
+	<input id="inp1" autocomplete="off" type="checkbox" value="30" class="checkBox">
+
+	<label for="inp2">Обід(45)</label>
+	<input checked id="inp2" autocomplete="off" type="checkbox" value="45" class="checkBox">
+
+	<label for="inp3">Вечеря(50)</label>
+	<input id="inp3" autocomplete="off" type="checkbox" value="50" class="checkBox">
+
+	<br>
+	<label for="">Гід 1(55)</label>
+	<input type="radio" name="radioBtn" class="radio" value="55">
+	<label for="">Гід 2(78)</label>
+	<input type="radio" name="radioBtn" class="radio" value="78">
+	<label for="">Гід 3(89)</label>
+	<input checked type="radio" name="radioBtn" class="radio" value="89">
+	<br>
+	<button type="button" id="getTotal">Get total</button>
+	<script>
+		//Задача 7. Подорож складається з 3 етапів. На кожному етапі користувач може вибрати один з видів транспорту (авто, автобус, літак - випадаючий список), харчування (сніданок, обід, вечеря – checkbоx) та одного з 3-х гідів(використати  - radio buttons). Ціни визначте самі. Підрахувати загальну вартість.
+
+		function getTotalSum() {
+			const transport = parseFloat(document.getElementById('transport').value)
+
+			const checkBoxList = document.getElementsByClassName('checkBox')
+
+			let s = 0
+			for (const el of checkBoxList) {
+				if (el.checked)
+					s += parseFloat(el.value)
+			}
+
+			const radioButtonsList = document.getElementsByClassName('radio')
+			console.log(radioButtonsList);
+			let temp
+			for (const el of radioButtonsList) {
+				if (el.checked)
+					temp = parseFloat(el.value)
+			}
+			const res = temp + s + transport
+			console.log(res);
+
+			const resDiv = document.createElement('div')
+			resDiv.innerText = res
+			document.getElementById('getTotal').after(resDiv)
+		}
+		window.onload = function () {
+			document.getElementById('getTotal').onclick = getTotalSum
+		}
+
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/style.css">
+	<title>Task 2</title>
+</head>
+
+<body>
+
+	<h1><a href="index.html">Home</a></h1>
+
+	<div>
+		<label for="grn">Сума в гривнях</label>
+		<input id="grn" autocomplete="off" type="number" placeholder="" class="input" value="0">
+	</div>
+	<button>Конвертувати</button>
+	<div>
+		<label for="euro">Сума в євро</label>
+		<input id="euro" autocomplete="off" type="number" placeholder="" class="input" value="0">
+	</div>
+	<div>
+		<label for="dollars">Сума в доларах</label>
+		<input id="dollars" autocomplete="off" type="number" placeholder="" class="input" value="0">
+	</div>
+	<script>
+		const dorrarRate = 37.12
+		const euroRate = 39.29
+
+		function getValute() {
+			const grn = parseFloat(document.getElementById('grn').value)
+
+			const resEuro = grn / euroRate
+			const resDollar = grn / dorrarRate
+
+			document.getElementById('euro').value = resEuro.toFixed(2)
+			document.getElementById('dollars').value = resDollar.toFixed(2)
+		}
+
+		window.onload = function () {
+			document.querySelector('button').onclick = getValute
+		}
+	</script>
+</body>
+
+</html>

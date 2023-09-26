@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="css/style.css" />
+	<title>Task 3</title>
+</head>
+
+<body>
+	<!-- Користувач задає рік народження. Визначити кількість років користувача. -->
+	<h1><a href="index.html">Home</a></h1>
+	<div>
+		<label for="yearOfBirth">Введіть ваш рік народження</label>
+		<input id="yearOfBirth" autocomplete="off" type="number" placeholder="" class="input" value="0">
+	</div>
+
+	<div>
+		<label for="userAge">Вам </label>
+		<input id="userAge" autocomplete="off" type="text" placeholder="" class="input" value="0">
+	</div>
+	<script>
+		const currentYear = 2023
+		function getUserAge() {
+			const userYearOfBirth = parseInt(document.getElementById('yearOfBirth').value)
+			const res = currentYear - userYearOfBirth
+			document.getElementById('userAge').value = `${res} років`
+		}
+		window.onload = function () {
+			document.getElementById('yearOfBirth').onchange = getUserAge
+		}
+	</script>
+</body>
+
+</html>

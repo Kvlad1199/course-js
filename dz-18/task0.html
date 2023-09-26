@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="css/style.css" />
+	<title>Task 1</title>
+	<style>
+		.flex {
+			display: flex;
+			/* flex-direction: column; */
+			justify-content: center;
+			align-items: center
+		}
+
+		.flex div:not(:last-child) {
+			margin-bottom: 10px;
+		}
+	</style>
+</head>
+
+<body>
+
+	<h1><a href="index.html">Home</a></h1>
+	<div class="flex">
+		<div>
+			<div>
+				<label for="">First number</label>
+				<input id="fInp" autocomplete="off" type="text" placeholder="" class="input" value="0">
+			</div>
+			<div>
+				<label for="">Second number</label>
+				<input id="sInp" autocomplete="off" type="text" placeholder="" class="input" value="0">
+			</div>
+			<div>
+				<button class="plus">Додати</button>
+				<button class="minus">Відняти</button>
+				<button class="multiplication">Помножити</button>
+				<button class="division">Поділити</button>
+			</div>
+			<div>
+				<label for="res">Результат</label>
+				<input id="res" autocomplete="off" type="number" placeholder="" class="input" value="0">
+			</div>
+		</div>
+	</div>
+	<script>
+		function getSum() {
+			const fNum = parseFloat(document.getElementById('fInp').value)
+			const sNum = parseFloat(document.getElementById('sInp').value)
+			const sum = fNum + sNum
+			document.getElementById('res').value = sum.toFixed(2)
+		}
+		function getMinus() {
+			const fNum = parseFloat(document.getElementById('fInp').value)
+			const sNum = parseFloat(document.getElementById('sInp').value)
+			const difference = fNum - sNum
+			document.getElementById('res').value = difference.toFixed(2)
+		}
+		function getMultiplication() {
+			const fNum = parseFloat(document.getElementById('fInp').value)
+			const sNum = parseFloat(document.getElementById('sInp').value)
+			const multiplication = fNum * sNum
+			document.getElementById('res').value = multiplication.toFixed(2)
+		}
+		function getDivision() {
+			const fNum = parseFloat(document.getElementById('fInp').value)
+			const sNum = parseFloat(document.getElementById('sInp').value)
+			const division = fNum / sNum
+			document.getElementById('res').value = division.toFixed(2)
+		}
+		window.onload = function () {
+			document.querySelector('.plus').onclick = getSum
+			document.querySelector('.minus').onclick = getMinus
+			document.querySelector('.multiplication').onclick = getMultiplication
+			document.querySelector('.division').onclick = getDivision
+		}
+
+	</script>
+
+</body>
+
+</html>

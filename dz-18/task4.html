@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<!-- <link rel="stylesheet" href="css/style.css" /> -->
+	<title>Task 5</title>
+</head>
+
+<body>
+	<h1><a href="index.html">Home</a></h1>
+
+	<div>
+		<label for="colomnNumber">Кількість стовпців</label>
+		<input id="colomnNumber" type="number" class="input">
+	</div>
+	<div>
+		<label for="rowNumber">Кількість рядків</label>
+		<input id="rowNumber" type="number" class="input">
+	</div>
+	<button>Створити таблицю</button>
+	<script>
+		//Задача 5. Користувач задає кількість рядків і стовпців. Відобразити таблицю, у клітинках якої знаходяться числа 1, 2, 3, …
+
+		function getTable() {
+			const colNum = parseInt(document.getElementById('colomnNumber').value)
+			const rowNum = parseInt(document.getElementById('rowNumber').value)
+			let counter = 1
+			const table = document.createElement('table')
+			for (let i = 0; i < rowNum; i++) {
+				const tr = document.createElement('tr')
+				for (let j = 0; j < colNum; j++) {
+					const td = document.createElement('td')
+					td.innerText = counter++
+					tr.append(td)
+				}
+				table.append(tr)
+			}
+			document.querySelector('button').after(table)
+		}
+		window.onload = function () {
+			document.querySelector('button').onclick = getTable
+		}
+	</script>
+</body>
+
+</html>
